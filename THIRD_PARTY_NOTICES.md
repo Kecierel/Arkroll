@@ -14,4 +14,4 @@
 
 React 与 React DOM 使用 MIT 许可，完整声明随站点提供于 public/licenses/react-MIT.txt 和 public/licenses/react-dom-MIT.txt。构建工具留在开发依赖中，不作为网页服务运行。
 
-网页可见的来源入口为 /data-sources.html。本说明保留来源及适用声明，不擅自为上游数据或本项目整体指定新的开源许可。
+网页可见的来源入口为 /data-sources.html。本项目由 Kecierel 有权授权的原创代码和文档采用根目录 LICENSE 中的 MIT 许可。本说明中的上游游戏数据、素材和第三方依赖不因该许可而重新授权，继续保留各自权利与适用许可。

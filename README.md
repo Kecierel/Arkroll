@@ -58,3 +58,9 @@ MAA 文件在浏览器本地解析，不上传服务器。拥有状态、启用�
 数据声明见 DATA_SOURCES.md 和 THIRD_PARTY_NOTICES.md；网页页脚也提供来源入口。本项目为非官方辅助工具，不连接或操作游戏。
 
 旧版备份和浏览器配置中 settings.ownedOnly 会被忽略，干员状态、职业锁定和结果保留。新版不再导出此筛选字段。
+
+## 许可证
+
+本项目由 Kecierel 有权授权的原创代码和文档采用 [MIT License](LICENSE)，允许使用、修改、分发及商业使用，须保留版权和许可声明。Copyright (c) 2026 Kecierel。
+
+此许可不重新授权《明日方舟》游戏名称、游戏数据、素材或第三方依赖；它们的权利归属及适用许可见 [第三方声明](THIRD_PARTY_NOTICES.md) 和 [数据来源](DATA_SOURCES.md)。
