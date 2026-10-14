@@ -2,7 +2,7 @@ import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap } f
 import { blankLocks, blankResult } from './randomizer'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
-export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, settings: { ownedOnly: false }, locks: blankLocks(), currentResult: blankResult() })
+export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v)
 export function normalizeConfig(value: unknown, operators: Operator[]): LocalConfig {
   const base = defaultConfig(operators)
@@ -12,7 +12,6 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
     const state = rawStates[operator.id]
     if (isRecord(state)) base.operatorStates[operator.id] = { owned: typeof state.owned === 'boolean' ? state.owned : false, enabled: typeof state.enabled === 'boolean' ? state.enabled : true }
   }
-  if (isRecord(value.settings) && typeof value.settings.ownedOnly === 'boolean') base.settings.ownedOnly = value.settings.ownedOnly
   if (isRecord(value.locks)) for (const p of PROFESSIONS) if (typeof value.locks[p] === 'boolean') base.locks[p] = value.locks[p] as boolean
   if (isRecord(value.currentResult)) for (const p of PROFESSIONS) {
     const id = value.currentResult[p]

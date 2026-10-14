@@ -15,17 +15,17 @@ export const randomIndex: PickIndex = length => {
 export const blankResult = (): RandomResult => Object.fromEntries(PROFESSIONS.map(p => [p, null])) as RandomResult
 export const blankLocks = (): LocalConfig['locks'] => Object.fromEntries(PROFESSIONS.map(p => [p, false])) as LocalConfig['locks']
 
-export function drawAll(operators: Operator[], states: OperatorStateMap, settings: LocalConfig['settings'], current: RandomResult, locks: LocalConfig['locks'], pick: PickIndex = randomIndex): RandomResult {
+export function drawAll(operators: Operator[], states: OperatorStateMap, current: RandomResult, locks: LocalConfig['locks'], pick: PickIndex = randomIndex): RandomResult {
   const next = { ...current }
   for (const profession of PROFESSIONS) {
     if (locks[profession]) continue
-    const candidates = eligibleFor(profession, operators, states, settings)
+    const candidates = eligibleFor(profession, operators, states)
     next[profession] = candidates.length ? candidates[pick(candidates.length)].id : null
   }
   return next
 }
-export function redrawOne(profession: Profession, operators: Operator[], states: OperatorStateMap, settings: LocalConfig['settings'], current: RandomResult, pick: PickIndex = randomIndex): RandomResult {
-  const candidates = eligibleFor(profession, operators, states, settings)
+export function redrawOne(profession: Profession, operators: Operator[], states: OperatorStateMap, current: RandomResult, pick: PickIndex = randomIndex): RandomResult {
+  const candidates = eligibleFor(profession, operators, states)
   if (!candidates.length) return { ...current, [profession]: null }
   const alternatives = candidates.filter(candidate => candidate.id !== current[profession])
   const pool = alternatives.length ? alternatives : candidates
