@@ -41,7 +41,8 @@ export function parseMaaExport(text: string): MaaOperator[] {
 export function previewMaaImport(text: string, operators: Operator[], states: OperatorStateMap): MaaImportPreview {
   const rows = parseMaaExport(text)
   const byId = new Map(operators.map(operator => [operator.id, operator]))
-  const ownership: Record<string, boolean> = {}
+  const ownership: Record<string, boolean> = Object.fromEntries(operators.map(operator => [operator.id, false]))
+  let matched = 0
   let totalSixStar = 0
   let unknownSixStar = 0
   let gained = 0
@@ -55,33 +56,31 @@ export function previewMaaImport(text: string, operators: Operator[], states: Op
     if (!operator) { unknownSixStar++; continue }
     if (row.name !== operator.name || operator.rarity !== 6) throw new Error(`MAA 文件中的 ID 与名称或星级不符：${row.id}`)
     ownership[row.id] = row.own
+    matched++
     coveredProfessions.add(operator.profession)
-    const previous = states[row.id]?.owned ?? false
-    if (previous === row.own) unchanged++
-    else if (row.own) gained++
-    else lost++
+
   }
-  const matched = Object.keys(ownership).length
   if (matched === 0 || PROFESSIONS.some(profession => !coveredProfessions.has(profession))) {
     throw new Error('MAA 文件未覆盖八个职业，无法作为完整干员识别结果导入。')
   }
+  for (const operator of operators) {
+    const previous = states[operator.id]?.owned ?? false
+    const next = ownership[operator.id]
+    if (previous === next) unchanged++
+    else if (next) gained++
+    else lost++
+  }
   const missingLocal = operators.length - matched
   const ownedAfter = operators.reduce((count, operator) =>
-    count + Number(ownership[operator.id] ?? states[operator.id]?.owned ?? false), 0)
+    count + Number(ownership[operator.id]), 0)
   return { ownership, matched, totalSixStar, unknownSixStar, missingLocal, gained, lost, unchanged, ownedAfter }
 }
 
 export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): LocalConfig {
-  const operatorStates = { ...config.operatorStates }
-  for (const [id, owned] of Object.entries(preview.ownership)) {
-    const previous = operatorStates[id]
-    if (!previous) continue
-    operatorStates[id] = { ...previous, owned }
-  }
-  // Disable every operator still unowned after merging, including records absent
-  // from an older export. Owned operators keep their previous enabled choice.
-  for (const [id, state] of Object.entries(operatorStates)) {
-    if (!state.owned) operatorStates[id] = { ...state, enabled: false }
-  }
+  const ids = new Set([...Object.keys(config.operatorStates), ...Object.keys(preview.ownership)])
+  const operatorStates: OperatorStateMap = Object.fromEntries([...ids].map(id => {
+    const owned = preview.ownership[id] ?? false
+    return [id, { owned, enabled: owned }]
+  }))
   return { ...config, operatorStates }
 }

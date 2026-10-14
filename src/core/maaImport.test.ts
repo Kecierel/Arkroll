@@ -34,7 +34,7 @@ describe('v0.2 正式数据', () => {
 })
 
 describe('MAA 导入', () => {
-  it('确认后更新拥有并自动禁用未拥有干员，保留其他选择', () => {
+  it('确认后按 MAA 全量覆盖拥有与启用，预览不写入', () => {
     const config = defaultConfig(operators)
     config.operatorStates[firstByProfession[0].id].enabled = false
     const preview = previewMaaImport(sampleExport(), operators, config.operatorStates)
@@ -43,7 +43,7 @@ describe('MAA 导入', () => {
     expect(preview.missingLocal).toBe(operators.length - 8)
     expect(config.operatorStates[firstByProfession[1].id]).toEqual({ owned: false, enabled: true })
     const next = applyMaaImport(preview, config)
-    expect(next.operatorStates[firstByProfession[0].id]).toEqual({ owned: true, enabled: false })
+    expect(next.operatorStates[firstByProfession[0].id]).toEqual({ owned: true, enabled: true })
     expect(next.operatorStates[firstByProfession[1].id]).toEqual({ owned: false, enabled: false })
     expect(Object.values(next.operatorStates).filter(state => !state.owned).every(state => !state.enabled)).toBe(true)
     expect(next.settings).toEqual(config.settings)
@@ -51,13 +51,19 @@ describe('MAA 导入', () => {
     expect(next.locks).toEqual(config.locks)
     expect(config.operatorStates[firstByProfession[0].id].owned).toBe(false)
   })
-  it('报告未知六星和较旧名单，未出现的干员保留拥有状态', () => {
+  it('报告未知六星和较旧名单，缺失干员强制清空并计入预览', () => {
     const config = defaultConfig(operators)
     const missing = operators.find(operator => !firstByProfession.includes(operator))!
     config.operatorStates[missing.id].owned = true
     const preview = previewMaaImport(sampleExport([{ id: 'char_999_unknown', name: '未知', rarity: 6, own: true }]), operators, config.operatorStates)
     expect(preview.unknownSixStar).toBe(1)
-    expect(applyMaaImport(preview, config).operatorStates[missing.id].owned).toBe(true)
+    expect(preview.matched).toBe(8)
+    expect(preview.missingLocal).toBe(operators.length - 8)
+    expect(preview.lost).toBe(1)
+    expect(preview.ownedAfter).toBe(4)
+    expect(preview.gained + preview.lost + preview.unchanged).toBe(operators.length)
+    expect(applyMaaImport(preview, config).operatorStates[missing.id]).toEqual({ owned: false, enabled: false })
+    expect(config.operatorStates[missing.id]).toEqual({ owned: true, enabled: true })
   })
   it('所有匹配和未匹配的未拥有干员都自动禁用，且不修改输入配置', () => {
     const config = defaultConfig(operators)
@@ -74,15 +80,15 @@ describe('MAA 导入', () => {
     expect(config).toEqual(original)
     expect(applyMaaImport(preview, next)).toEqual(next)
   })
-  it('保留未出现在旧文件中的已拥有干员及用户手动禁用的选择', () => {
+  it('覆盖旧文件缺失记录和手动禁用，重新启用已拥有干员', () => {
     const config = defaultConfig(operators)
     const missing = operators.find(operator => !firstByProfession.includes(operator))!
     config.operatorStates[missing.id] = { owned: true, enabled: false }
     config.operatorStates[firstByProfession[0].id].enabled = false
     const preview = previewMaaImport(sampleExport(), operators, config.operatorStates)
     const next = applyMaaImport(preview, config)
-    expect(next.operatorStates[missing.id]).toEqual({ owned: true, enabled: false })
-    expect(next.operatorStates[firstByProfession[0].id]).toEqual({ owned: true, enabled: false })
+    expect(next.operatorStates[missing.id]).toEqual({ owned: false, enabled: false })
+    expect(next.operatorStates[firstByProfession[0].id]).toEqual({ owned: true, enabled: true })
   })
   it('无效 JSON、重复 ID、错误名称和不完整职业不会覆盖数据', () => {
     const config = defaultConfig(operators)
