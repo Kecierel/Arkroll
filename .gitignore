@@ -1,0 +1,30 @@
+# Dependencies and generated files
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+.vite-temp/
+playwright-report/
+test-results/
+*.log
+
+# Local secrets and private exports
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/
+private/
+local-data/
+*-backup.json
+*maa-export*.json
+*MAA-export*.json
+*干员识别*.json
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
