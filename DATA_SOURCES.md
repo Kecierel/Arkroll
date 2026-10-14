@@ -13,3 +13,10 @@
 更新数据时使用 `scripts/generate-operators.py`，传入本地 MAA 全量导出、对应版本的 `battle_data.json` 和 `character_table.json`。脚本会拒绝重复 ID、字段冲突、非法职业及空职业；只输出 `id/name/profession/rarity`。更新后须重新运行测试和网站构建，再推送 GitHub 触发部署。
 
 许可提示：MaaResource 仓库标注 AGPL-3.0；本地工具仅保留最小事实字段。发布保留上游来源、版本和适用许可信息，见 THIRD_PARTY_NOTICES.md。本文件记录数据出处，不代表已经完成公开发布许可审查。
+
+## v0.3 默认头像
+
+- 来源：[yuanyan3060/ArknightsGameResource](https://github.com/yuanyan3060/ArknightsGameResource/tree/9bf239661e37766fba585806fb9fa67e79bb679e/avatar)，固定提交 `9bf239661e37766fba585806fb9fa67e79bb679e`。
+- 仅下载当前 138 名六星对应的 `avatar/<完整干员ID>.png`，排除追加 `_2` 的精二版本和所有皮肤；异格 ID 自带的 `2` 保留。
+- 原始 PNG 合计 8,308,641 字节；逐文件核对 Git blob SHA，尺寸与 SHA-256 记录在 `public/avatars/avatar-manifest.json`。不修改原始素材、不下载半身像或立绘。
+- 该项目为第三方整理仓库，README 声明静态资源版权属于 Arknights/上海鹰角网络科技有限公司，“仅用于学习和交流，侵删”。仓库 AGPL-3.0 标识不构成游戏图片权利人的授权，游戏素材不纳入本项目 MIT 许可。
