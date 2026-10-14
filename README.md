@@ -1,5 +1,7 @@
 # 集成战略六星随机干员工具 v0.2.3
 
+🌐 **在线使用：[集成战略六星随机工具](https://arkroll.pages.dev/)**
+
 基于 React、TypeScript、Vite 的纯前端网站。按八职业各抽取一名六星干员，通过 GitHub 私有仓库与 Cloudflare Pages 持续发布。无需账号或后端。
 
 ## 功能
