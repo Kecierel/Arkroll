@@ -78,5 +78,10 @@ export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): 
     if (!previous) continue
     operatorStates[id] = { ...previous, owned }
   }
+  // Disable every operator still unowned after merging, including records absent
+  // from an older export. Owned operators keep their previous enabled choice.
+  for (const [id, state] of Object.entries(operatorStates)) {
+    if (!state.owned) operatorStates[id] = { ...state, enabled: false }
+  }
   return { ...config, operatorStates }
 }
