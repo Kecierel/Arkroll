@@ -18,7 +18,7 @@ export const blankLocks = (): LocalConfig['locks'] => Object.fromEntries(PROFESS
 export function drawAll(operators: Operator[], states: OperatorStateMap, current: RandomResult, locks: LocalConfig['locks'], pick: PickIndex = randomIndex): RandomResult {
   const next = { ...current }
   for (const profession of PROFESSIONS) {
-    if (locks[profession]) continue
+    if (locks[profession] && current[profession] !== null) continue
     const candidates = eligibleFor(profession, operators, states)
     next[profession] = candidates.length ? candidates[pick(candidates.length)].id : null
   }

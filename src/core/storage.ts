@@ -26,6 +26,9 @@ export function loadConfig(operators: Operator[]): { config: LocalConfig; warnin
     const parsed: unknown = JSON.parse(raw)
     const sampleStates = isRecord(parsed) && isRecord(parsed.operatorStates) && Object.keys(parsed.operatorStates).some(id => id.startsWith('sample_'))
     const config = normalizeConfig(parsed, operators)
+    // Keep personal settings, but start each page load with an undrawn lineup.
+    // Backup normalization remains separate so explicit imports can restore results.
+    config.currentResult = blankResult()
     if (sampleStates) saveConfig(config)
     return { config, warning: false, migratedSample: Boolean(sampleStates) }
   } catch { return { config: defaultConfig(operators), warning: true, migratedSample: false } }
