@@ -1,0 +1,1252 @@
+{
+  "sourceRevision": "9bf239661e37766fba585806fb9fa67e79bb679e",
+  "format": "webp",
+  "quality": 85,
+  "method": 6,
+  "originalBytes": 8308641,
+  "optimizedBytes": 1890866,
+  "files": [
+    {
+      "id": "char_003_kalts",
+      "path": "avatars/webp/char_003_kalts.2e63aa168007.webp",
+      "bytes": 13014,
+      "width": 180,
+      "height": 180,
+      "sha256": "2e63aa1680078b210e52aeb2da4a2241712e0d080cf5258645b4050168406f43",
+      "sourceSha256": "398f32e2ff78d9e6fcee8cb9b49979aca2457f47f8d7ce5e15c589ff317c17c0"
+    },
+    {
+      "id": "char_010_chen",
+      "path": "avatars/webp/char_010_chen.60eea5e3eb8d.webp",
+      "bytes": 13506,
+      "width": 180,
+      "height": 180,
+      "sha256": "60eea5e3eb8db0c9caeed6215e3ccb7a5efbf25eadcc407032fe647d9c50751a",
+      "sourceSha256": "4c85c9c4b908679a4068b586f8f9723c602b9b16cb333742519219254999084e"
+    },
+    {
+      "id": "char_017_huang",
+      "path": "avatars/webp/char_017_huang.72dce49a25ec.webp",
+      "bytes": 13700,
+      "width": 180,
+      "height": 180,
+      "sha256": "72dce49a25ecceaf3d24ac1080aa9fa26488b4d886773569ec1899f27f8d56ba",
+      "sourceSha256": "79c7124f78ef8bdd2f5ca0043e5e725077565dbf928f1b1cee466a2305f32144"
+    },
+    {
+      "id": "char_1012_skadi2",
+      "path": "avatars/webp/char_1012_skadi2.c4df77e177dc.webp",
+      "bytes": 15420,
+      "width": 180,
+      "height": 180,
+      "sha256": "c4df77e177dc0549af425bd04dd48b55e8754bbcb2e6d4c79b6374317921e3ab",
+      "sourceSha256": "d6addd787b9f389e08a8839bd7fc37fbdb89b35a33c3c7d5f82a41afda6bd168"
+    },
+    {
+      "id": "char_1013_chen2",
+      "path": "avatars/webp/char_1013_chen2.9f3c9af2125c.webp",
+      "bytes": 15184,
+      "width": 180,
+      "height": 180,
+      "sha256": "9f3c9af2125c23c5d0c36b68e4f6845d51503baa4dedaad0d6159b0d8d55b6f4",
+      "sourceSha256": "07d4f575cc2bd04a9c5c57e18ab61afb75a549903e80522121f054c20aec061d"
+    },
+    {
+      "id": "char_1014_nearl2",
+      "path": "avatars/webp/char_1014_nearl2.d2dfbf246fb9.webp",
+      "bytes": 14092,
+      "width": 180,
+      "height": 180,
+      "sha256": "d2dfbf246fb9fb7905eb5c7be9bd3f7cdcb16ef7e0fd1b585cbceabeaa03eb2b",
+      "sourceSha256": "44dc2e9dc859d4134bf527be7d5436aa35c2b89fe0451d3a3ae657f7ec229c1c"
+    },
+    {
+      "id": "char_1015_aglna2",
+      "path": "avatars/webp/char_1015_aglna2.0d5ba73be25c.webp",
+      "bytes": 14428,
+      "width": 180,
+      "height": 180,
+      "sha256": "0d5ba73be25cd35757c3b552440ca9404e260d3d5e296671cbf59cc6c2b916b9",
+      "sourceSha256": "b94512dd0c68706f2a3f61084681ccc838c5a1f501788f51b9acabf2fba1169e"
+    },
+    {
+      "id": "char_1016_agoat2",
+      "path": "avatars/webp/char_1016_agoat2.d57b8ead488f.webp",
+      "bytes": 15494,
+      "width": 180,
+      "height": 180,
+      "sha256": "d57b8ead488f7d4cd31d40a1923f16b8d02728b6ee0177660b5faa504e19d827",
+      "sourceSha256": "77f17e188890a775b16769f63f1423f6b2b0c2df745c5bd04e9eec552ef922d3"
+    },
+    {
+      "id": "char_1019_siege2",
+      "path": "avatars/webp/char_1019_siege2.f05280f4c8c0.webp",
+      "bytes": 14736,
+      "width": 180,
+      "height": 180,
+      "sha256": "f05280f4c8c0a9eb1c7c57f1f396ec9736fe202102cdeaa85d5dc1241eb18a67",
+      "sourceSha256": "d57b320b5d3c00900892ae94c2878856e3bdf6e5b54a27b7286433581e462111"
+    },
+    {
+      "id": "char_1020_reed2",
+      "path": "avatars/webp/char_1020_reed2.ff4216d3730b.webp",
+      "bytes": 15180,
+      "width": 180,
+      "height": 180,
+      "sha256": "ff4216d3730bffdd5e466e1ce2933b1a9eb8cfe2f3d34ebda615879bd5dd5c51",
+      "sourceSha256": "c8928f78a9572655933a972e2f4d8a6ee52f384ff97fd4508c838f1f04dec526"
+    },
+    {
+      "id": "char_1023_ghost2",
+      "path": "avatars/webp/char_1023_ghost2.d1f807c69479.webp",
+      "bytes": 12288,
+      "width": 180,
+      "height": 180,
+      "sha256": "d1f807c69479a9873be07394af13281eba665c5bd550f47fff4dcb14f5a48fd1",
+      "sourceSha256": "4cb921980abc77e83dd6bbb53a1b541de05f0af8a6755087582df96674beeaf6"
+    },
+    {
+      "id": "char_1026_gvial2",
+      "path": "avatars/webp/char_1026_gvial2.9eb4728f6e0b.webp",
+      "bytes": 12934,
+      "width": 180,
+      "height": 180,
+      "sha256": "9eb4728f6e0be9336c989d0c01a7b76d38c2f576594df93b98f9e43045dda192",
+      "sourceSha256": "404ae61aa5045a61cdf5bebee822c32e70486db7fb44c3a2e6f4323f9c28d6cd"
+    },
+    {
+      "id": "char_1028_texas2",
+      "path": "avatars/webp/char_1028_texas2.d24e9fc461c3.webp",
+      "bytes": 11876,
+      "width": 180,
+      "height": 180,
+      "sha256": "d24e9fc461c320225ff0663cc7603ec4a4c7126dbace229a7b9c8fa8ffd5c25b",
+      "sourceSha256": "ecc0383bec1a4d45b4f33932f9556f4dc031e55ea85b22c18aefcaf1d3ef5271"
+    },
+    {
+      "id": "char_1029_yato2",
+      "path": "avatars/webp/char_1029_yato2.41f8cf8b39aa.webp",
+      "bytes": 13098,
+      "width": 180,
+      "height": 180,
+      "sha256": "41f8cf8b39aa71511a0f76a0f0e127438ecc4d09be723b706a15adf507fd76aa",
+      "sourceSha256": "a3fb95669385bc31d12b755b5038cfd2c164710cc9323d59c7f5f0949f3d45d5"
+    },
+    {
+      "id": "char_1031_slent2",
+      "path": "avatars/webp/char_1031_slent2.b893e69166f7.webp",
+      "bytes": 15152,
+      "width": 180,
+      "height": 180,
+      "sha256": "b893e69166f77127b07bc4dc856afa561f1ed7be68c68894f5b25f153ec351b2",
+      "sourceSha256": "77afe4c3c2193062074a91dc51a397af87f5aab1c5a5bfaf33e3667b7ce74ecf"
+    },
+    {
+      "id": "char_1032_excu2",
+      "path": "avatars/webp/char_1032_excu2.e63962c8b65f.webp",
+      "bytes": 13046,
+      "width": 180,
+      "height": 180,
+      "sha256": "e63962c8b65f27c42bb33bd1c5ac120aa3c2184d9d1b70dd3cf1f13f239857d5",
+      "sourceSha256": "68526c28f49906940e90e3b4707ea0dcf2af9be7f84824d71061a1eca709fe10"
+    },
+    {
+      "id": "char_1033_swire2",
+      "path": "avatars/webp/char_1033_swire2.af55c836acb8.webp",
+      "bytes": 11394,
+      "width": 180,
+      "height": 180,
+      "sha256": "af55c836acb8accac1178c9038c16364c7a9eb3974a1e7b2a0af489e7c5aeecd",
+      "sourceSha256": "f2290d76050e0bed50fa75a0863d18467de7f89811274c499f91a09a14677c2c"
+    },
+    {
+      "id": "char_1034_jesca2",
+      "path": "avatars/webp/char_1034_jesca2.2c1e7457b107.webp",
+      "bytes": 14060,
+      "width": 180,
+      "height": 180,
+      "sha256": "2c1e7457b1079e0969215fe15a0cd55522c3c17ee2b4eb595583493cbd7bcc67",
+      "sourceSha256": "051021ea85f5d7e30a9909dd01f3ec07789229f0474fc4fd1884c9fce09982bf"
+    },
+    {
+      "id": "char_1035_wisdel",
+      "path": "avatars/webp/char_1035_wisdel.4cbb6095cabc.webp",
+      "bytes": 17492,
+      "width": 180,
+      "height": 180,
+      "sha256": "4cbb6095cabc2755adc63136c1b11f22f831312a68a249fd3aa9e01f3fd6d8ec",
+      "sourceSha256": "1b983d2968c47aa74e1cbfe26575d829980b46d0aca8d1e837d0b138625f5a2e"
+    },
+    {
+      "id": "char_1038_whitw2",
+      "path": "avatars/webp/char_1038_whitw2.31c219bbc5bb.webp",
+      "bytes": 15298,
+      "width": 180,
+      "height": 180,
+      "sha256": "31c219bbc5bb1595c660fa8e028dd4b408c9611a024457b13e6be42e021226c7",
+      "sourceSha256": "44b48692a2d0bb8aa9106e554bb5f79b2737b8303cc55163a7927b2016260985"
+    },
+    {
+      "id": "char_1039_thorn2",
+      "path": "avatars/webp/char_1039_thorn2.87b659ce960c.webp",
+      "bytes": 12924,
+      "width": 180,
+      "height": 180,
+      "sha256": "87b659ce960c3a2547b7fb2ddb2be5735434cd5e00774686fc7b3b7952eeaba5",
+      "sourceSha256": "e271ec44ba079c0580e711d3330414d05ecb8379e4491a4b29edb15eeb760173"
+    },
+    {
+      "id": "char_103_angel",
+      "path": "avatars/webp/char_103_angel.990c46de41b1.webp",
+      "bytes": 14448,
+      "width": 180,
+      "height": 180,
+      "sha256": "990c46de41b1e92fe7d42de3edf9865f6271a308905b7a1bebc2610b66de162b",
+      "sourceSha256": "a904af0446742777914ce5326520a689b4b7dc0523be7555d9643d93b92f9b33"
+    },
+    {
+      "id": "char_1040_blaze2",
+      "path": "avatars/webp/char_1040_blaze2.40ffad2e6619.webp",
+      "bytes": 17676,
+      "width": 180,
+      "height": 180,
+      "sha256": "40ffad2e6619e739e38bec5e48d63318028bdf6590437effa2fbfd50247848fe",
+      "sourceSha256": "c7ae600401929fa2756d1f0583e6f69cfca87b32636e499020a0a8e2f1dd692f"
+    },
+    {
+      "id": "char_1041_angel2",
+      "path": "avatars/webp/char_1041_angel2.883d06e151a5.webp",
+      "bytes": 17794,
+      "width": 180,
+      "height": 180,
+      "sha256": "883d06e151a5556fbd272dbeac9ba9586c3ea919f46472fc4a3524cc777d629b",
+      "sourceSha256": "2cce25e5ae35cf5293624fef36c1efaf590e74127fff3efe9b78359e877f940e"
+    },
+    {
+      "id": "char_1042_phatm2",
+      "path": "avatars/webp/char_1042_phatm2.8e9d932214e5.webp",
+      "bytes": 14070,
+      "width": 180,
+      "height": 180,
+      "sha256": "8e9d932214e518eb6a7abff43c71ebd148076c6c52582e2ee76354086ad2c039",
+      "sourceSha256": "a7159c817681bd88a51f227b6295c5332bae5f8ef9b50a0c8163ab692ae6a42d"
+    },
+    {
+      "id": "char_1043_leizi2",
+      "path": "avatars/webp/char_1043_leizi2.bad9f281f281.webp",
+      "bytes": 17892,
+      "width": 180,
+      "height": 180,
+      "sha256": "bad9f281f281d7a8cff2f4e1daa62a4de65b1a6724918b5135d4ffdfdb1aa5ab",
+      "sourceSha256": "1a5e10df83d1cf29c3af9ad191cee7dfbdd8a50c9b5a59a785fdd3f0f728c69f"
+    },
+    {
+      "id": "char_1044_hsgma2",
+      "path": "avatars/webp/char_1044_hsgma2.9366346f5c1e.webp",
+      "bytes": 15292,
+      "width": 180,
+      "height": 180,
+      "sha256": "9366346f5c1e0f7b7ddd4b380229c60cf2e6c6bb1887580012494807b2fadad7",
+      "sourceSha256": "e2c3f360d74466bd491f55285dcc26dfbc45e70f8e2e849bd3e2750dc7c0d867"
+    },
+    {
+      "id": "char_1045_svash2",
+      "path": "avatars/webp/char_1045_svash2.3fe7fe4573ea.webp",
+      "bytes": 13666,
+      "width": 180,
+      "height": 180,
+      "sha256": "3fe7fe4573ea1095bf9bbaf737703205ba4c6903cfd0df01dc4dbff881c048c2",
+      "sourceSha256": "eb6e3b18f79daf4b9dcd9e9908eb8c10abe432d1cb6f69aa9eb32998e7848e23"
+    },
+    {
+      "id": "char_1046_sbell2",
+      "path": "avatars/webp/char_1046_sbell2.e6affa3ce11f.webp",
+      "bytes": 16386,
+      "width": 180,
+      "height": 180,
+      "sha256": "e6affa3ce11faab6f1a366fe719d14d689f415dfa3a72d46f68dcfa91fffffb1",
+      "sourceSha256": "779a3490b8d790048fc0b8d8f6235ff8b5eff95f2bb2c5f1f1bd4fc5044ba550"
+    },
+    {
+      "id": "char_1047_halo2",
+      "path": "avatars/webp/char_1047_halo2.45938842fb77.webp",
+      "bytes": 18074,
+      "width": 180,
+      "height": 180,
+      "sha256": "45938842fb77322b57e60590cf8e78d155604c99ddf940bbd090caf252c41f0d",
+      "sourceSha256": "1e419a43bf5f69ad778ed928b4b8c87b59150e57733e0a07ab4a1209f48327d4"
+    },
+    {
+      "id": "char_1048_orchd2",
+      "path": "avatars/webp/char_1048_orchd2.8caa87e58953.webp",
+      "bytes": 15808,
+      "width": 180,
+      "height": 180,
+      "sha256": "8caa87e5895320445840b75d5767d5a6e95ae4769222c74b5c71838c3900bcaa",
+      "sourceSha256": "bfd3d5cc706b6d2d5e0a8a0dd4783e24ad07213eafd75fce0eade5d9228dda5d"
+    },
+    {
+      "id": "char_1050_chen3",
+      "path": "avatars/webp/char_1050_chen3.df845ca47507.webp",
+      "bytes": 17402,
+      "width": 180,
+      "height": 180,
+      "sha256": "df845ca4750739c23f2e9681cb9d967134a09424706b040aa060faa23650f79b",
+      "sourceSha256": "4f9e7e3b56a31f6c344e327449adda3e9476aa5f16f01cd8336542b6b0203670"
+    },
+    {
+      "id": "char_1051_headb2",
+      "path": "avatars/webp/char_1051_headb2.fd92ab6be69a.webp",
+      "bytes": 12406,
+      "width": 180,
+      "height": 180,
+      "sha256": "fd92ab6be69a9a56b210adb844801cbecd8b8b52da336569d30a4f6e90e61980",
+      "sourceSha256": "dd66a2aa2fc0b87e942beda0811e5952b0104bc42cafd9f02bf151df7db5d514"
+    },
+    {
+      "id": "char_1052_kalts2",
+      "path": "avatars/webp/char_1052_kalts2.4270bed9c2f0.webp",
+      "bytes": 13754,
+      "width": 180,
+      "height": 180,
+      "sha256": "4270bed9c2f0786501794c4b4bef5c93b03f80984ca11af9d9bb07701c09a12f",
+      "sourceSha256": "2d6f4399a68d27b1e8cd798ebee4e1b509ff89e2611f9ed68f31ab7e805c7323"
+    },
+    {
+      "id": "char_112_siege",
+      "path": "avatars/webp/char_112_siege.42a9e674e776.webp",
+      "bytes": 15582,
+      "width": 180,
+      "height": 180,
+      "sha256": "42a9e674e776dcbdb1fce902443b9ff42ef3b0afe063a61d19781adfb407cec2",
+      "sourceSha256": "69686448a501efe715b191ef4b2f4bd9000b7811c2d2c9509c1ba6c7960e12e5"
+    },
+    {
+      "id": "char_113_cqbw",
+      "path": "avatars/webp/char_113_cqbw.98418ce0c5bc.webp",
+      "bytes": 14780,
+      "width": 180,
+      "height": 180,
+      "sha256": "98418ce0c5bcb6c28efbf88d2a91963a74d8e73b5f6c0e4e701d441b0a9ab9c0",
+      "sourceSha256": "2d41f013b25ec05090569f6c94186eb53ab143054df952e50f3adde4a35d0aa9"
+    },
+    {
+      "id": "char_134_ifrit",
+      "path": "avatars/webp/char_134_ifrit.f8aebc915380.webp",
+      "bytes": 16342,
+      "width": 180,
+      "height": 180,
+      "sha256": "f8aebc91538063ac5222a7f2f6bd0831d1f8ba02adfd32d133eeba663edc08f2",
+      "sourceSha256": "2397da399f7331615ee8fcfa40730c9c2754a7646558affa7c66dfa4b0366b1f"
+    },
+    {
+      "id": "char_136_hsguma",
+      "path": "avatars/webp/char_136_hsguma.c21d0f130240.webp",
+      "bytes": 9494,
+      "width": 180,
+      "height": 180,
+      "sha256": "c21d0f1302406024948e0726d202dbd4aab89cd771af01c3bbc86444696d0801",
+      "sourceSha256": "d6a7178ca818768b60bd21e2b9641aaf0d7a96d5bf9a257efbbb563c483ab68f"
+    },
+    {
+      "id": "char_147_shining",
+      "path": "avatars/webp/char_147_shining.af8d1a34860b.webp",
+      "bytes": 13728,
+      "width": 180,
+      "height": 180,
+      "sha256": "af8d1a34860bc6d2f47f119ef4d757d50bdf76b3f839ce2f93ced3f66c50b510",
+      "sourceSha256": "5711741606d1d8599c43395fa6550002349a505f15a2b0cdd1850ac96eae3a3c"
+    },
+    {
+      "id": "char_1502_crosly",
+      "path": "avatars/webp/char_1502_crosly.cda38392cd6d.webp",
+      "bytes": 11308,
+      "width": 180,
+      "height": 180,
+      "sha256": "cda38392cd6d1ca276f900e4e2f26ab3dd69e36378751c1f9f68c82caeadd387",
+      "sourceSha256": "e713870a19273d565f63bbfd6de12319c2401c52b8b7e628653b350c3ed06ff7"
+    },
+    {
+      "id": "char_172_svrash",
+      "path": "avatars/webp/char_172_svrash.1da7116bec74.webp",
+      "bytes": 13008,
+      "width": 180,
+      "height": 180,
+      "sha256": "1da7116bec74de61b4f4ccb64b24fa35c2f77c203228b752af5b04f2cf0048a7",
+      "sourceSha256": "5f0c1407fcd7d5b7cbae6930784c4ca7548d1a91023a4272e02d2bccbf77b6ab"
+    },
+    {
+      "id": "char_179_cgbird",
+      "path": "avatars/webp/char_179_cgbird.0deee25c5ec6.webp",
+      "bytes": 12488,
+      "width": 180,
+      "height": 180,
+      "sha256": "0deee25c5ec65dd7a884e7ab11ff77fef3c38f68ff2d77379558cd9d9fef933f",
+      "sourceSha256": "e1ecaffd20509f286580821f82a0ad6a1191791a9e8f30d2d709bae6e3f08912"
+    },
+    {
+      "id": "char_180_amgoat",
+      "path": "avatars/webp/char_180_amgoat.c9d8ac264b5c.webp",
+      "bytes": 14894,
+      "width": 180,
+      "height": 180,
+      "sha256": "c9d8ac264b5c8bfb6a974b472123b6ec9e689ae437a32d6064596a80041cd06e",
+      "sourceSha256": "b9b0fee08ef14f39c88bc5a5b11cec959e6c283fda2bf400e08ddc7b98653628"
+    },
+    {
+      "id": "char_188_helage",
+      "path": "avatars/webp/char_188_helage.1f2e46e7755a.webp",
+      "bytes": 11924,
+      "width": 180,
+      "height": 180,
+      "sha256": "1f2e46e7755acc8c2ce93702b60d8a067c1fe710c5a459a49ff6c7c7efa8350b",
+      "sourceSha256": "e53696f08e15333d269e3382865e2dc6a3306a0a5f0a2ff28b1232be349b81c6"
+    },
+    {
+      "id": "char_197_poca",
+      "path": "avatars/webp/char_197_poca.99d8f2e19b35.webp",
+      "bytes": 10620,
+      "width": 180,
+      "height": 180,
+      "sha256": "99d8f2e19b35967980ca22245c30796998237110745eefb7d17ab16ce378cc0d",
+      "sourceSha256": "1dc13fe714783972918010bfa338f5b9451a46a7ded660755bc458e32546144a"
+    },
+    {
+      "id": "char_2012_typhon",
+      "path": "avatars/webp/char_2012_typhon.d555b42d4352.webp",
+      "bytes": 14838,
+      "width": 180,
+      "height": 180,
+      "sha256": "d555b42d435245d931f573e7b8ca2793d2dfb74c71690f516021232267bdfea4",
+      "sourceSha256": "0317698ea795e303802065c102293508b3eca5573e711b1ebe87aa1ca5fbe5ca"
+    },
+    {
+      "id": "char_2013_cerber",
+      "path": "avatars/webp/char_2013_cerber.801107d33708.webp",
+      "bytes": 13764,
+      "width": 180,
+      "height": 180,
+      "sha256": "801107d33708808c486346c7a5de9d49aae883f12d1ee3731b8b40beb272cc49",
+      "sourceSha256": "0ada25039ca45324681102b19c14423cbd835c653d33e36bd18d3dffd9da434b"
+    },
+    {
+      "id": "char_2014_nian",
+      "path": "avatars/webp/char_2014_nian.a8e87ca5892b.webp",
+      "bytes": 15684,
+      "width": 180,
+      "height": 180,
+      "sha256": "a8e87ca5892ba4570f3ca78ba46b0bc8ddaafdf9c6cfc6402429b3ffc0611327",
+      "sourceSha256": "86c99e423478c339a576f848080073979c9492edfcf09a7911ccf0a846ddb45f"
+    },
+    {
+      "id": "char_2015_dusk",
+      "path": "avatars/webp/char_2015_dusk.0d523b059414.webp",
+      "bytes": 15692,
+      "width": 180,
+      "height": 180,
+      "sha256": "0d523b0594140311f8d61367e0945bc3bd830a2abc20c8dea07477685d2c79ec",
+      "sourceSha256": "a0fcdebc677754733475faa035a842e42419053764d47a0b4fa13acdfcc316e7"
+    },
+    {
+      "id": "char_2023_ling",
+      "path": "avatars/webp/char_2023_ling.2478bd88efbc.webp",
+      "bytes": 16620,
+      "width": 180,
+      "height": 180,
+      "sha256": "2478bd88efbcf8db2a0270362d0e4836e1ddbbda518964122ab2b441edf7d79b",
+      "sourceSha256": "ffb7da7f7d047a9bd1da107356f021b470f82e2d9e02c928d171b130cbfef5ba"
+    },
+    {
+      "id": "char_2024_chyue",
+      "path": "avatars/webp/char_2024_chyue.ff6d4d56a181.webp",
+      "bytes": 11280,
+      "width": 180,
+      "height": 180,
+      "sha256": "ff6d4d56a1817948acf7fcc8a7e610bbf72189c97a42a9b0b94d890e7baf6f63",
+      "sourceSha256": "adb4ed0bc45b401e63bfd3c4d1acc0c57c6ebcc51352199828331ffa89b0e1f9"
+    },
+    {
+      "id": "char_2025_shu",
+      "path": "avatars/webp/char_2025_shu.c8324495d82b.webp",
+      "bytes": 14654,
+      "width": 180,
+      "height": 180,
+      "sha256": "c8324495d82b55015ae1dd7bbf1ec5d7164c3db46f3ec82ad866ab5ffdae81e3",
+      "sourceSha256": "877111515eb945ddf62d9564e63a08879034497b6b9199f7dc084c7e6ed4153a"
+    },
+    {
+      "id": "char_2026_yu",
+      "path": "avatars/webp/char_2026_yu.237f9d07dc5e.webp",
+      "bytes": 15150,
+      "width": 180,
+      "height": 180,
+      "sha256": "237f9d07dc5e0c744ec0014031f16af71290214830526c4690f6d778dfe859de",
+      "sourceSha256": "857a230a60bb920b60c4bc70fd8a0d2411d889bb58b6bc60b37601c392c24351"
+    },
+    {
+      "id": "char_2027_wang",
+      "path": "avatars/webp/char_2027_wang.e68db9780f16.webp",
+      "bytes": 14712,
+      "width": 180,
+      "height": 180,
+      "sha256": "e68db9780f1671c7f59577974e21bf70bf903af975f21c4e00cf1caabe40b88a",
+      "sourceSha256": "9b78ba037d24855494ca6358d9337bddcce01562267e4de1184625f7f5e70afc"
+    },
+    {
+      "id": "char_202_demkni",
+      "path": "avatars/webp/char_202_demkni.247c34f11186.webp",
+      "bytes": 13536,
+      "width": 180,
+      "height": 180,
+      "sha256": "247c34f111866ef7a26d2dda23c18ad0012eed808bd29d2350ab197c5c9a3cf6",
+      "sourceSha256": "22640def078a0029121a66d782e0a3bfb07a9187550d191c0469f18169db824c"
+    },
+    {
+      "id": "char_206_gnosis",
+      "path": "avatars/webp/char_206_gnosis.7e0c5fcf3e54.webp",
+      "bytes": 11958,
+      "width": 180,
+      "height": 180,
+      "sha256": "7e0c5fcf3e543f2550b8a54164516e6bae49d3fbb4bc8079a2cc2559c5b45148",
+      "sourceSha256": "18e4cb9efb3786e2b7479b47662eb4e1d7be9ec9c26bc38287ff30330ca291f1"
+    },
+    {
+      "id": "char_213_mostma",
+      "path": "avatars/webp/char_213_mostma.a22797719ec9.webp",
+      "bytes": 14262,
+      "width": 180,
+      "height": 180,
+      "sha256": "a22797719ec989a3e53091da784f18fac8e2816339861370da00beb630b66871",
+      "sourceSha256": "a0c5757e78d82589d4e83b76c89851b0dd648e4e10962eec25f62c5f0236e273"
+    },
+    {
+      "id": "char_222_bpipe",
+      "path": "avatars/webp/char_222_bpipe.c5dd9a13ded5.webp",
+      "bytes": 13098,
+      "width": 180,
+      "height": 180,
+      "sha256": "c5dd9a13ded54c06300fbcef45a7243efc6bdd02aa1041caffc3977535b1f7b9",
+      "sourceSha256": "cc94bcd8a7700868298ca1ff109cc347d89ccda651f459b937f15d111e33d645"
+    },
+    {
+      "id": "char_225_haak",
+      "path": "avatars/webp/char_225_haak.fdcb2cce56ec.webp",
+      "bytes": 10390,
+      "width": 180,
+      "height": 180,
+      "sha256": "fdcb2cce56ec1fc2183651ffb64506e43347d03d0a6e8d77056bbcfc319c12c1",
+      "sourceSha256": "159edf542b3e25cd535a5f7959810f98d0e86c446ed9e63722f7d163d28e2a65"
+    },
+    {
+      "id": "char_245_cello",
+      "path": "avatars/webp/char_245_cello.11f76560b148.webp",
+      "bytes": 10814,
+      "width": 180,
+      "height": 180,
+      "sha256": "11f76560b148ff1705957537eb3f17dab49220a066a32886c76588a6b264d34d",
+      "sourceSha256": "8a0d67cf6f8ce323725ecf60b4f0d3c4096358908f26d8aec5fd1b4b96158abd"
+    },
+    {
+      "id": "char_248_mgllan",
+      "path": "avatars/webp/char_248_mgllan.df361d2f7598.webp",
+      "bytes": 13348,
+      "width": 180,
+      "height": 180,
+      "sha256": "df361d2f7598f669a342e34d8b3a336bb173f8ff2e1a3be23e9b040acc169383",
+      "sourceSha256": "a9cb924c63f286c0b440931d6d044ade16ecd299daa95f976ef1f544c239b3c7"
+    },
+    {
+      "id": "char_249_mlyss",
+      "path": "avatars/webp/char_249_mlyss.fd2942b2ec90.webp",
+      "bytes": 13268,
+      "width": 180,
+      "height": 180,
+      "sha256": "fd2942b2ec90d99d5708599bbd6e2a76f03569bc6ddcf28458f3cbef8a4e293a",
+      "sourceSha256": "c2e27f53715d6d4c204dbdfff9555f86b0ece90d599270ce6aa4e2bd84ffd1fe"
+    },
+    {
+      "id": "char_250_phatom",
+      "path": "avatars/webp/char_250_phatom.5c537b8b3425.webp",
+      "bytes": 9610,
+      "width": 180,
+      "height": 180,
+      "sha256": "5c537b8b3425e8d815531e3a210b1a0f47c3e770251965c651c77dabf04eab5c",
+      "sourceSha256": "cdf48145fad8c7b691cf57ed1923f5c79d90bcaee456531575fb6f5ec217e9e7"
+    },
+    {
+      "id": "char_263_skadi",
+      "path": "avatars/webp/char_263_skadi.516eb7257787.webp",
+      "bytes": 11232,
+      "width": 180,
+      "height": 180,
+      "sha256": "516eb725778772f77982817c2de2127ebf6cde7049d98dc6779b6b7e9452d0f6",
+      "sourceSha256": "8a8dc360685aa32bbf5315e8f9b97e3935e21cf21b8ea564dd36d95be731583b"
+    },
+    {
+      "id": "char_264_f12yin",
+      "path": "avatars/webp/char_264_f12yin.571d9136d279.webp",
+      "bytes": 11688,
+      "width": 180,
+      "height": 180,
+      "sha256": "571d9136d2793b3e8ee9a035c279ee69b6eccc8bdfe56e9ec018593d46916d13",
+      "sourceSha256": "799097be54fbdd1eadbdd1f147956a717ae122f14961896f95a024c7460bfaf9"
+    },
+    {
+      "id": "char_291_aglina",
+      "path": "avatars/webp/char_291_aglina.6715b16dca75.webp",
+      "bytes": 13722,
+      "width": 180,
+      "height": 180,
+      "sha256": "6715b16dca7531700bc9207b0238d6ed84ff466ecf942ebe893d0d7d245cf007",
+      "sourceSha256": "3bd296370fa1a698895ff1f492abce020771b1e5fe5f6cb4fdfe2c8d7de09686"
+    },
+    {
+      "id": "char_293_thorns",
+      "path": "avatars/webp/char_293_thorns.c395f4247ec9.webp",
+      "bytes": 11160,
+      "width": 180,
+      "height": 180,
+      "sha256": "c395f4247ec94ee6d8b0f02be02e2ec3204a3e3bd2817d416576d6b84c5ba9c2",
+      "sourceSha256": "4c03e9741f9a8a2593cc7e6c11862f90a0f225f193763d40c457dcb1fefd4a4a"
+    },
+    {
+      "id": "char_300_phenxi",
+      "path": "avatars/webp/char_300_phenxi.fb4dbbede549.webp",
+      "bytes": 15840,
+      "width": 180,
+      "height": 180,
+      "sha256": "fb4dbbede5499cdf1de3b53c64ac0e4c2ca4d294e9256245e0bb0d7080c4f5d8",
+      "sourceSha256": "6cacabd3d1e8430762639a7775dd28770b446a3f9460b6c8c70d3e2660686388"
+    },
+    {
+      "id": "char_311_mudrok",
+      "path": "avatars/webp/char_311_mudrok.a355574d96f9.webp",
+      "bytes": 10630,
+      "width": 180,
+      "height": 180,
+      "sha256": "a355574d96f963462648bd6f0ffe896c99c4b7201629766030e86598391bfe1f",
+      "sourceSha256": "eca2f9969123f42eaa008607c3430fc0745db5211acc852efd4a323f77a28280"
+    },
+    {
+      "id": "char_322_lmlee",
+      "path": "avatars/webp/char_322_lmlee.565be9ad59c7.webp",
+      "bytes": 13668,
+      "width": 180,
+      "height": 180,
+      "sha256": "565be9ad59c7d93ca91024239e549f49db4a6bd6d5e20a45106871793305f301",
+      "sourceSha256": "945d416745a29daa3d755f9fca70d5a2724fd337145efe6ffeea0db84f6acb14"
+    },
+    {
+      "id": "char_332_archet",
+      "path": "avatars/webp/char_332_archet.5376f262a583.webp",
+      "bytes": 12662,
+      "width": 180,
+      "height": 180,
+      "sha256": "5376f262a5839e04b69561c31c6f8eccbcee5f14d3a95b6e0774923e5a2338c4",
+      "sourceSha256": "30593a6dbb531c3437a773725daea58aa017ed67c31f15d148444487b617fafb"
+    },
+    {
+      "id": "char_340_shwaz",
+      "path": "avatars/webp/char_340_shwaz.f66bae75399c.webp",
+      "bytes": 13118,
+      "width": 180,
+      "height": 180,
+      "sha256": "f66bae75399c788c793b0884954af79c4e8f4110271ab0f9959570465aea9542",
+      "sourceSha256": "e2562171b76669a38aadafbfa18d2cbef1ea3707e1f5ae992f8e65b3deb7b12f"
+    },
+    {
+      "id": "char_350_surtr",
+      "path": "avatars/webp/char_350_surtr.4bb86fcc16c5.webp",
+      "bytes": 12976,
+      "width": 180,
+      "height": 180,
+      "sha256": "4bb86fcc16c5dae147c27bc831ed5e6bc3ed2eedb78744461ddd9e6f42b619ab",
+      "sourceSha256": "71b1a57ff8d8b82aee3f9593b6af01552417c2e5761c9f33166fa25a99283b69"
+    },
+    {
+      "id": "char_358_lisa",
+      "path": "avatars/webp/char_358_lisa.b3a0d1a9cf85.webp",
+      "bytes": 14532,
+      "width": 180,
+      "height": 180,
+      "sha256": "b3a0d1a9cf85015cdaf7eb6000d5770cccc2deea48f15d5864ce0f408b5af3d4",
+      "sourceSha256": "1745cc5e456376c13bee800d5739150ec301e132127ef193a91a024e86a1a65c"
+    },
+    {
+      "id": "char_362_saga",
+      "path": "avatars/webp/char_362_saga.d2c63e453322.webp",
+      "bytes": 9692,
+      "width": 180,
+      "height": 180,
+      "sha256": "d2c63e453322489e55de83256b515683cc6617af33eb6b0ae74ea20fb92ae6a1",
+      "sourceSha256": "0bb6d00230fd06d2343ffd7fa5612275efd1b4a3c41672e3daa61f6700b06d49"
+    },
+    {
+      "id": "char_377_gdglow",
+      "path": "avatars/webp/char_377_gdglow.76c9c774cd07.webp",
+      "bytes": 15428,
+      "width": 180,
+      "height": 180,
+      "sha256": "76c9c774cd079293d60b03adc7499d8fe01e78348229acdf8508bfd22843551c",
+      "sourceSha256": "3017078b963d6ecd538660aa0189d318d3ffbbfa96608bfcfdd61e1e0c0a3fb2"
+    },
+    {
+      "id": "char_391_rosmon",
+      "path": "avatars/webp/char_391_rosmon.39d9c4197c8c.webp",
+      "bytes": 15594,
+      "width": 180,
+      "height": 180,
+      "sha256": "39d9c4197c8cbf59c2845c04ca625e9a46accb6b3a140a424e1622129e2d140b",
+      "sourceSha256": "2b020852580f9f80a6f04e6c559dc4c0be1bb565cb9487434ea7bc691384f407"
+    },
+    {
+      "id": "char_4009_irene",
+      "path": "avatars/webp/char_4009_irene.3e54da692c45.webp",
+      "bytes": 10130,
+      "width": 180,
+      "height": 180,
+      "sha256": "3e54da692c45a82531abc95c2989c8d35acdfb2a55a2535bf2d9eb2af1f2222a",
+      "sourceSha256": "7c1e7b9a05da837d0bf7926cc48f15619dc3e18b04ba795b066ab53e10056cd7"
+    },
+    {
+      "id": "char_400_weedy",
+      "path": "avatars/webp/char_400_weedy.2af27412b250.webp",
+      "bytes": 13944,
+      "width": 180,
+      "height": 180,
+      "sha256": "2af27412b25063fb82d0c8246ac430b5f22f9946f6e339b61339773e3814d1d3",
+      "sourceSha256": "1144049661b52e9a07a2608eb93f4dcfab16df82dfe537828ec687fad6821d1d"
+    },
+    {
+      "id": "char_4010_etlchi",
+      "path": "avatars/webp/char_4010_etlchi.4e4268869ab4.webp",
+      "bytes": 11566,
+      "width": 180,
+      "height": 180,
+      "sha256": "4e4268869ab4854b0d9abb5a67869e8d583bd60a91ca3455d96e52359eb2ac53",
+      "sourceSha256": "65acc7ab1309619db27a50a6102bf6fd5673ec120b97fac0d7c76c9d7fc5e22b"
+    },
+    {
+      "id": "char_4011_lessng",
+      "path": "avatars/webp/char_4011_lessng.1777044ae6c9.webp",
+      "bytes": 12936,
+      "width": 180,
+      "height": 180,
+      "sha256": "1777044ae6c9c309a83b410a7876c4e1561e61cdb1706eca32a36dccfcf43c2d",
+      "sourceSha256": "962fc2db6e4c809cbeafb708872ac120b2a2bf02c6e4566c1197f9499a4bd978"
+    },
+    {
+      "id": "char_4026_vulpis",
+      "path": "avatars/webp/char_4026_vulpis.9174410b38a3.webp",
+      "bytes": 14726,
+      "width": 180,
+      "height": 180,
+      "sha256": "9174410b38a335fbb0fd39f2d1e4e510a0cace2216401af6597feba697ab41aa",
+      "sourceSha256": "3b72531d1d91cc4745b3ba3023568a364107e76e20258b5e4ecac7933ce5fbc9"
+    },
+    {
+      "id": "char_4027_heyak",
+      "path": "avatars/webp/char_4027_heyak.a76133ebbc6a.webp",
+      "bytes": 11226,
+      "width": 180,
+      "height": 180,
+      "sha256": "a76133ebbc6a99fa72d83e2a4ed25d4b651e911ed6e98eef61b7d37121f77040",
+      "sourceSha256": "3a94ec6a667f9b651927a71dd1572da618ed6ac941cd1e28642dee733183f389"
+    },
+    {
+      "id": "char_4037_demetr",
+      "path": "avatars/webp/char_4037_demetr.d6bb2d8d35b0.webp",
+      "bytes": 16906,
+      "width": 180,
+      "height": 180,
+      "sha256": "d6bb2d8d35b01e757a60cd7045ee52930cd28d582149caa1595e734f091e0440",
+      "sourceSha256": "4ea9c7c8735d7a12ec2897f9b767e4d244ca0ac1f3aeb0a2b3e46b7c328b09d5"
+    },
+    {
+      "id": "char_4039_horn",
+      "path": "avatars/webp/char_4039_horn.d8e2985589a9.webp",
+      "bytes": 12138,
+      "width": 180,
+      "height": 180,
+      "sha256": "d8e2985589a965c1973e952b38e26a993fff90b3d9916a1848f26b45333f094a",
+      "sourceSha256": "a71b36a66d50290e221a0a62351db22706a3387dd0230757fe52779a8fbd96e6"
+    },
+    {
+      "id": "char_4042_lumen",
+      "path": "avatars/webp/char_4042_lumen.f78d0e1b8c0c.webp",
+      "bytes": 14676,
+      "width": 180,
+      "height": 180,
+      "sha256": "f78d0e1b8c0c06c9d274f50433ef9a75e5f07a8180de7bbf6a4e130b25b5308a",
+      "sourceSha256": "38b020149cd4c5c35d1d149bea56412612c033fd7ad0c712c3b51e4a4b22e8d7"
+    },
+    {
+      "id": "char_4046_ebnhlz",
+      "path": "avatars/webp/char_4046_ebnhlz.953edbfe6ddf.webp",
+      "bytes": 15798,
+      "width": 180,
+      "height": 180,
+      "sha256": "953edbfe6ddfb7b9666465aeaca52434b892e930e5229ebb72b38b15f71d8414",
+      "sourceSha256": "0b4fe79e8f1d334df29b2452fb5eb328c63b66094d876d0e7e6ad0793f32d45f"
+    },
+    {
+      "id": "char_4048_doroth",
+      "path": "avatars/webp/char_4048_doroth.2e9931f84fea.webp",
+      "bytes": 15550,
+      "width": 180,
+      "height": 180,
+      "sha256": "2e9931f84fea1d7e7ad9ecb53e6b99eb344a454f1b5be1aef4dd3c010c27c88a",
+      "sourceSha256": "bc37c40128aa4e3254be5dcad9d62b2a169eaa44dcffc1e285a09dc37049d132"
+    },
+    {
+      "id": "char_4055_bgsnow",
+      "path": "avatars/webp/char_4055_bgsnow.1718d0db8ed4.webp",
+      "bytes": 15430,
+      "width": 180,
+      "height": 180,
+      "sha256": "1718d0db8ed4fcfee47b8350c625c06ab1e6d54d4c4d5ec6849cc3cdd659cab6",
+      "sourceSha256": "4fbf174615443bf22370a10de752a394d97a7506592f124c9905a08f03a80f3e"
+    },
+    {
+      "id": "char_4056_titi",
+      "path": "avatars/webp/char_4056_titi.5c7098af0f00.webp",
+      "bytes": 8820,
+      "width": 180,
+      "height": 180,
+      "sha256": "5c7098af0f0047db5541bbaa3d3e5757413e606ffcfea7a1c0ca09e11e7478d7",
+      "sourceSha256": "8c899f05b1b8a585e86616e120c9f6f6d305ec15bacd178c5dc7115ebe6e9483"
+    },
+    {
+      "id": "char_4058_pepe",
+      "path": "avatars/webp/char_4058_pepe.457644827a60.webp",
+      "bytes": 14044,
+      "width": 180,
+      "height": 180,
+      "sha256": "457644827a6067838ad96bf343a0c45caeb3c0bd8a67ede50c26535fcb236e15",
+      "sourceSha256": "2c86157f7d6eb6fd0dfd245bf26def83590de024503f6b7584f28b5bfd92190e"
+    },
+    {
+      "id": "char_4064_mlynar",
+      "path": "avatars/webp/char_4064_mlynar.0868afb91020.webp",
+      "bytes": 12592,
+      "width": 180,
+      "height": 180,
+      "sha256": "0868afb910200c7040fa206e4b145397e34bc3d0acc75c41a89dbd37babbdd1d",
+      "sourceSha256": "adb4fce930f533d8b0bad4d6f1af33d347267c04a6334ccd24e23bee01d91591"
+    },
+    {
+      "id": "char_4065_judge",
+      "path": "avatars/webp/char_4065_judge.4c9c26a0be23.webp",
+      "bytes": 12200,
+      "width": 180,
+      "height": 180,
+      "sha256": "4c9c26a0be231057710c22a243530f60962998f4674843fefffaa0ec7c875f16",
+      "sourceSha256": "8a2d5f47af5d3a0696004c3d75539b60364915ec21bf1626531a01a00ba52aed"
+    },
+    {
+      "id": "char_4072_ironmn",
+      "path": "avatars/webp/char_4072_ironmn.59f44fdef4c0.webp",
+      "bytes": 13730,
+      "width": 180,
+      "height": 180,
+      "sha256": "59f44fdef4c0144b083a5585acb29b26ebc64acb68745cc2e8b68882c4972939",
+      "sourceSha256": "0535c69454aa68127ac71238d8fefd2fe9dba7277a6e880b1a3c5cd5efab9e35"
+    },
+    {
+      "id": "char_4080_lin",
+      "path": "avatars/webp/char_4080_lin.8fa309fd6e32.webp",
+      "bytes": 13292,
+      "width": 180,
+      "height": 180,
+      "sha256": "8fa309fd6e3288ad70a721726e449324972a2f92eac652ca81aa30ef14fe6f43",
+      "sourceSha256": "6c2caca469f180dfb37bceff3120beb0ab56f03911a03f76305378af9f5fb9fb"
+    },
+    {
+      "id": "char_4082_qiubai",
+      "path": "avatars/webp/char_4082_qiubai.da8d7bd54a67.webp",
+      "bytes": 15674,
+      "width": 180,
+      "height": 180,
+      "sha256": "da8d7bd54a67a6cce35b8a08d3af4e7202e5e992c072c01f3027cd096d641264",
+      "sourceSha256": "60345a22276eff5684224ae33f2316c379e28a42df724800a51f4b359f9c559a"
+    },
+    {
+      "id": "char_4087_ines",
+      "path": "avatars/webp/char_4087_ines.3d910bb57403.webp",
+      "bytes": 11764,
+      "width": 180,
+      "height": 180,
+      "sha256": "3d910bb57403be7408d5b93458c66f5c6dd0f48bda9aad442608dbbbfc55f922",
+      "sourceSha256": "1c4dbd3d3422530ef709c7be8241587385123e275470c27ee61386bd11e803a8"
+    },
+    {
+      "id": "char_4088_hodrer",
+      "path": "avatars/webp/char_4088_hodrer.e1ccbec1f763.webp",
+      "bytes": 12054,
+      "width": 180,
+      "height": 180,
+      "sha256": "e1ccbec1f76375141318bf34393d2db15a39748840014b8d85f198976d404e86",
+      "sourceSha256": "87f7950c41fdac02ee4e2636caafc308d49e75cc1e3c12bbec1843220bdd6cc7"
+    },
+    {
+      "id": "char_4098_vvana",
+      "path": "avatars/webp/char_4098_vvana.051305fee2cd.webp",
+      "bytes": 15456,
+      "width": 180,
+      "height": 180,
+      "sha256": "051305fee2cdceb6d49f80fc538d91fbd63bf0e169bbd73c6f9f234bef395fbf",
+      "sourceSha256": "ecd2869ee6a146b990dffe3df4e241c22793fb0cec36e5053cf76d4ffc5a8480"
+    },
+    {
+      "id": "char_4116_blkkgt",
+      "path": "avatars/webp/char_4116_blkkgt.aaab528050bf.webp",
+      "bytes": 12860,
+      "width": 180,
+      "height": 180,
+      "sha256": "aaab528050bfb9ff420fd581e58c984ca576a8bfc5a8052a0590389f25a2fbda",
+      "sourceSha256": "9ad9c5f40b5456a71dec4efda510333f20fcdb8319f57518fac28edeb51692fb"
+    },
+    {
+      "id": "char_4117_ray",
+      "path": "avatars/webp/char_4117_ray.8667df766062.webp",
+      "bytes": 11332,
+      "width": 180,
+      "height": 180,
+      "sha256": "8667df7660626bd1f1304da5aaf137fffeb87a5538bf3998ee769093fdddd5fb",
+      "sourceSha256": "1dfc9fb03bce8891bc91d947f24e45079f1e963be124b446e76fa6fa12d4b07c"
+    },
+    {
+      "id": "char_4121_zuole",
+      "path": "avatars/webp/char_4121_zuole.ed111e170fe0.webp",
+      "bytes": 12478,
+      "width": 180,
+      "height": 180,
+      "sha256": "ed111e170fe0c4c774969bd36e68019e4e65e860d1b157156c0615ac939918d7",
+      "sourceSha256": "afa063b1052da1e50af514b51b6d3b674e8b97810ef480ca0c1dc193bdeaa6f3"
+    },
+    {
+      "id": "char_4123_ela",
+      "path": "avatars/webp/char_4123_ela.bdbb07e44e33.webp",
+      "bytes": 12186,
+      "width": 180,
+      "height": 180,
+      "sha256": "bdbb07e44e337af3dc21efe9a0daee985b56a91e2110c1a0f3fd9f536f935125",
+      "sourceSha256": "64619dd875b085abaed2d36c3a49d1898b71047b7fcf0401c49ef8378c912fb0"
+    },
+    {
+      "id": "char_4132_ascln",
+      "path": "avatars/webp/char_4132_ascln.c24f42d4ae1b.webp",
+      "bytes": 14426,
+      "width": 180,
+      "height": 180,
+      "sha256": "c24f42d4ae1b140c22606481aaec4d314b01702cf81665a7425ff8dbb4d4af83",
+      "sourceSha256": "db9844bc201e921fafd82ea6d18f132e9ae157632c660cd3d2b83eee101c474a"
+    },
+    {
+      "id": "char_4133_logos",
+      "path": "avatars/webp/char_4133_logos.bdd76c869abd.webp",
+      "bytes": 13972,
+      "width": 180,
+      "height": 180,
+      "sha256": "bdd76c869abdd3ddca5519f8eb86489929291b8ef90155a81bd296a93c43b858",
+      "sourceSha256": "a2442ac172d6d84ad7b932b2157fde5c1b901f4d86668eee850272a8da34873c"
+    },
+    {
+      "id": "char_4134_cetsyr",
+      "path": "avatars/webp/char_4134_cetsyr.a9e5f87c7878.webp",
+      "bytes": 16342,
+      "width": 180,
+      "height": 180,
+      "sha256": "a9e5f87c787816f92058ecd481114be889b099ba0124a82e1a28571ecf8696e5",
+      "sourceSha256": "11485adf3eb607ee408869c202bb0831df4aa03bdaabd8d9b9506c01bbc2476d"
+    },
+    {
+      "id": "char_4138_narant",
+      "path": "avatars/webp/char_4138_narant.defea544951a.webp",
+      "bytes": 15918,
+      "width": 180,
+      "height": 180,
+      "sha256": "defea544951ad7313c5934b4054904886543954ecb3115a967bc01150368bcfb",
+      "sourceSha256": "d68a592ee872acedfb3b45c6dd1d809308e8eb7fdafacee30747159b36056e7f"
+    },
+    {
+      "id": "char_4141_marcil",
+      "path": "avatars/webp/char_4141_marcil.297cb20a978a.webp",
+      "bytes": 12820,
+      "width": 180,
+      "height": 180,
+      "sha256": "297cb20a978a105ecae6892e0ef1eb9f42292151dcecb4d3e581732ee3acf00e",
+      "sourceSha256": "6793a0377948aef652071190bacdd4348580eb36ce358958988e56dc2e85bc7a"
+    },
+    {
+      "id": "char_4145_ulpia",
+      "path": "avatars/webp/char_4145_ulpia.4bbddcb28746.webp",
+      "bytes": 10720,
+      "width": 180,
+      "height": 180,
+      "sha256": "4bbddcb2874660b8a1e7a1cc6f861ef730cd09f615911097406d5f3f182ee543",
+      "sourceSha256": "aa4b37dc1aef24de96b0f3901a25da7d49f0d28189a5734f6ce8957e7df5a57d"
+    },
+    {
+      "id": "char_4146_nymph",
+      "path": "avatars/webp/char_4146_nymph.9a708eff3315.webp",
+      "bytes": 14660,
+      "width": 180,
+      "height": 180,
+      "sha256": "9a708eff33155f0e39e94cde51cb2a9ed0793f4e32e3c4eb98bebdf0a98f5027",
+      "sourceSha256": "c4b578ce73d15e04ab66cef8f7164b961b12ccb560e4bc434ba6dc8a4b2b25b0"
+    },
+    {
+      "id": "char_416_zumama",
+      "path": "avatars/webp/char_416_zumama.8bde88ffb549.webp",
+      "bytes": 13582,
+      "width": 180,
+      "height": 180,
+      "sha256": "8bde88ffb549633597b98d0444bfa4c31370f0c3a5fa509d50ffa13456f8b5d9",
+      "sourceSha256": "519f88afcd7736c9dea5a9cce02a3404573125f48661222ea6f30f8dd5937814"
+    },
+    {
+      "id": "char_4179_monstr",
+      "path": "avatars/webp/char_4179_monstr.301555480087.webp",
+      "bytes": 13984,
+      "width": 180,
+      "height": 180,
+      "sha256": "3015554800870e04d0baaa8f40205060d43cf0f827d0da0e42d8b0f8e91e0f49",
+      "sourceSha256": "2cfb5e34eca73b6d34be197aa9c5d36450d02bd46a66dc83648e27e5e165fa39"
+    },
+    {
+      "id": "char_4182_oblvns",
+      "path": "avatars/webp/char_4182_oblvns.a7ca80c2d87c.webp",
+      "bytes": 14476,
+      "width": 180,
+      "height": 180,
+      "sha256": "a7ca80c2d87cffe523a62d7df51d9282eb17867bf30a2c73810e52766dde3920",
+      "sourceSha256": "2da1ccdcc45a5b12bcb8d3e4ac3f8d1cb9b09a8712f972c3d87fdf89996bb562"
+    },
+    {
+      "id": "char_4193_lemuen",
+      "path": "avatars/webp/char_4193_lemuen.1ecd8819cb7a.webp",
+      "bytes": 11934,
+      "width": 180,
+      "height": 180,
+      "sha256": "1ecd8819cb7a00369cda721bd8c6ef09e79e7c6095b299368662855f47330616",
+      "sourceSha256": "a558cf87f9a977a42ffb9be31ec9bc116cd3529586de8c4c70bf978c52041a45"
+    },
+    {
+      "id": "char_4194_rmixer",
+      "path": "avatars/webp/char_4194_rmixer.c275c4a0e58a.webp",
+      "bytes": 14280,
+      "width": 180,
+      "height": 180,
+      "sha256": "c275c4a0e58aba614fe5448e21601ee597e0ebcbf8cb66c097f122bd25921fae",
+      "sourceSha256": "ccbc066eff731c802f1e665f2d97b64e53fae5587ad961b964241d35123ba402"
+    },
+    {
+      "id": "char_4195_radian",
+      "path": "avatars/webp/char_4195_radian.21fc98ed3ce8.webp",
+      "bytes": 11484,
+      "width": 180,
+      "height": 180,
+      "sha256": "21fc98ed3ce8e7621828c6a34c92931b690aac2cbae866f87f94ea75f732f828",
+      "sourceSha256": "860b5f83a04830d7f1e56484c10aa6148d6f02eb3aeea7498264135650e0f262"
+    },
+    {
+      "id": "char_4202_haruka",
+      "path": "avatars/webp/char_4202_haruka.ace0b32e31d4.webp",
+      "bytes": 15924,
+      "width": 180,
+      "height": 180,
+      "sha256": "ace0b32e31d43cfbb091c0f8ea6507528e6dfd3fad55a74b86ddaf3a05043bd3",
+      "sourceSha256": "c16894fffea7bc487d890458d15e09cfaff558d9fc851ab43577197a6d4e5286"
+    },
+    {
+      "id": "char_4204_mantra",
+      "path": "avatars/webp/char_4204_mantra.2f039bd08f68.webp",
+      "bytes": 12728,
+      "width": 180,
+      "height": 180,
+      "sha256": "2f039bd08f6879b4e0b165554a9b18a41258d5c5dcb22abe31187aca82ea8f00",
+      "sourceSha256": "beb3f59e991b5bd9f94dcd54b5bb114a754e67314e56e544ee46af17e0a3bcec"
+    },
+    {
+      "id": "char_420_flamtl",
+      "path": "avatars/webp/char_420_flamtl.1fb65b9f7219.webp",
+      "bytes": 16248,
+      "width": 180,
+      "height": 180,
+      "sha256": "1fb65b9f721970c0f3154f896223c0f2cf186e763c2b384902a73bb5a41ad677",
+      "sourceSha256": "2b9ac30f687679ab09e2ad9920840e213bdd384300649c474c0d983017fa38d1"
+    },
+    {
+      "id": "char_4212_nasti",
+      "path": "avatars/webp/char_4212_nasti.d3ecd52b8126.webp",
+      "bytes": 13210,
+      "width": 180,
+      "height": 180,
+      "sha256": "d3ecd52b8126ce45e1c5fea059f1aa3c03ea0e38b519c78841429328ac5ecded",
+      "sourceSha256": "659594c23e13c247c796d67d46f96105d5ddd247ca8abe4785351859fdbccbe6"
+    },
+    {
+      "id": "char_4217_makoto",
+      "path": "avatars/webp/char_4217_makoto.66a3d14314e9.webp",
+      "bytes": 11828,
+      "width": 180,
+      "height": 180,
+      "sha256": "66a3d14314e97d8d3fca49d4a17ad727121cbfdcbadcd7e778a930d7ed9878fc",
+      "sourceSha256": "eb1bd82c7d2be321a7e68db0fae08ecc1cbaf23181717239f9ce1b4622b97243"
+    },
+    {
+      "id": "char_4226_veen",
+      "path": "avatars/webp/char_4226_veen.c8e111b9c110.webp",
+      "bytes": 15450,
+      "width": 180,
+      "height": 180,
+      "sha256": "c8e111b9c11039a65970ab6c375ee9352ec81b038ba70ab1fae3442ee709e25b",
+      "sourceSha256": "7d11dc05281f4fa3efba6456d9d1f96b5d208817022b22f9f4b0e67d32ea5766"
+    },
+    {
+      "id": "char_4228_closur",
+      "path": "avatars/webp/char_4228_closur.27e8ffb64b2f.webp",
+      "bytes": 12228,
+      "width": 180,
+      "height": 180,
+      "sha256": "27e8ffb64b2fe7911fde1330ab676688d1545f90beda0d3d6f4af46bc55a4033",
+      "sourceSha256": "deeff81da80ee9238ed4ab2224a2fdda88e8960999bc132b26e78a5d3c7d3609"
+    },
+    {
+      "id": "char_4229_aphris",
+      "path": "avatars/webp/char_4229_aphris.6a9f090e577e.webp",
+      "bytes": 12314,
+      "width": 180,
+      "height": 180,
+      "sha256": "6a9f090e577e4cd474b24baade477707c84610c32381cc1f53a5b3d71868205c",
+      "sourceSha256": "fbb6b2859bdf11794d76dbc40ac84be5986f47e57edb97f58ee892fdf19235c6"
+    },
+    {
+      "id": "char_4230_mcnist",
+      "path": "avatars/webp/char_4230_mcnist.9dff52ecf6d9.webp",
+      "bytes": 11504,
+      "width": 180,
+      "height": 180,
+      "sha256": "9dff52ecf6d970fe9bfc03bab27b5e738cb6f26a83c2428886ed8090e1cf0585",
+      "sourceSha256": "bd2f0b2f8a3eb09ae1f20c8de3da1251bbf738b077e2c94a528857847147166f"
+    },
+    {
+      "id": "char_4231_clemnt",
+      "path": "avatars/webp/char_4231_clemnt.fc98af267b12.webp",
+      "bytes": 15026,
+      "width": 180,
+      "height": 180,
+      "sha256": "fc98af267b12aca3000240225fa99ca5a50dc1991a589db049a8b84a862c911b",
+      "sourceSha256": "44438cc910a68decc12de9226e3c6de175a0067922871d6c80c55defb916ec1f"
+    },
+    {
+      "id": "char_4235_thumpy",
+      "path": "avatars/webp/char_4235_thumpy.918166c86507.webp",
+      "bytes": 11460,
+      "width": 180,
+      "height": 180,
+      "sha256": "918166c865075ae809449d647feba705eca49d5363f218e6a2c48363b38f66c3",
+      "sourceSha256": "3fa8d685894e4c0acef162adc38a87ee23f45e347b297734eac302493cfb7587"
+    },
+    {
+      "id": "char_423_blemsh",
+      "path": "avatars/webp/char_423_blemsh.0ea6c64cd308.webp",
+      "bytes": 15106,
+      "width": 180,
+      "height": 180,
+      "sha256": "0ea6c64cd3088f64ea3fb01ff1edcedf248e195b126c465fd6d52d83e53f116a",
+      "sourceSha256": "6737e7ffccc166a7e69fc460707427b66c65f8e6e821ba6234d9efd6f75b5efb"
+    },
+    {
+      "id": "char_426_billro",
+      "path": "avatars/webp/char_426_billro.5526f346f904.webp",
+      "bytes": 15450,
+      "width": 180,
+      "height": 180,
+      "sha256": "5526f346f904aa0fba18da4bc3aa77b21a774f72d0dcc6eb5ea53f6956e79688",
+      "sourceSha256": "40f5752f59acb7316a634b357b0bf27b5c252c36f6ac08067d67711bd3671026"
+    },
+    {
+      "id": "char_427_vigil",
+      "path": "avatars/webp/char_427_vigil.99882934a995.webp",
+      "bytes": 14810,
+      "width": 180,
+      "height": 180,
+      "sha256": "99882934a995e0575e68bece07b0d0244666fe738a47d50ff3cac1369c6562be",
+      "sourceSha256": "142a7d2b056aee7c51c0b5263d0f1007a5bb00ce9d6186f6e28af19fa5b41597"
+    },
+    {
+      "id": "char_430_fartth",
+      "path": "avatars/webp/char_430_fartth.f5870165e5a0.webp",
+      "bytes": 17178,
+      "width": 180,
+      "height": 180,
+      "sha256": "f5870165e5a07b9b2161708d620af320b9da8c571c6506cb6687b60a445512c2",
+      "sourceSha256": "d844ae383d37a28d0bef7a71c768dfacf0a5dbea96d286ff08879f3c50238a70"
+    },
+    {
+      "id": "char_437_mizuki",
+      "path": "avatars/webp/char_437_mizuki.81302eac3c46.webp",
+      "bytes": 14426,
+      "width": 180,
+      "height": 180,
+      "sha256": "81302eac3c46e4241d04bd65f9a29a9f325ed8e2554441726251f9fcc73e39dc",
+      "sourceSha256": "362a922debee4781590739b592a79178f8b34f396e0318e345933fef8cc8339e"
+    },
+    {
+      "id": "char_450_necras",
+      "path": "avatars/webp/char_450_necras.6274ee0f9045.webp",
+      "bytes": 14512,
+      "width": 180,
+      "height": 180,
+      "sha256": "6274ee0f904539bd779cafa1806ead39ae4c74f0a173ec1e964cbe4d50708d97",
+      "sourceSha256": "58f5388bbf1248521600e260e95faca37ff14dfe1d1ca4de4377e586fe0ea74f"
+    },
+    {
+      "id": "char_456_ash",
+      "path": "avatars/webp/char_456_ash.77767ee2b22d.webp",
+      "bytes": 10984,
+      "width": 180,
+      "height": 180,
+      "sha256": "77767ee2b22db62d5f0431e6c77c5adbed91bb897f37c492910256a61300d85c",
+      "sourceSha256": "bddeb40f54cca5b1c1dc690aa525d33c852cc13f6129b1c7c5657e257a096121"
+    },
+    {
+      "id": "char_472_pasngr",
+      "path": "avatars/webp/char_472_pasngr.5a93b32d13e0.webp",
+      "bytes": 11286,
+      "width": 180,
+      "height": 180,
+      "sha256": "5a93b32d13e09c62f937e92c7288edb29755c02eedbfda41f777e7dfea793494",
+      "sourceSha256": "c32e22209215dc70eab9ccd7215b7c51ac8c00f25818c38488d439f5dc16e398"
+    },
+    {
+      "id": "char_474_glady",
+      "path": "avatars/webp/char_474_glady.b5dbd3b3657d.webp",
+      "bytes": 12458,
+      "width": 180,
+      "height": 180,
+      "sha256": "b5dbd3b3657d123a8f9ccc034aacfa4dee6b632bc64f555a72ea5c4b3110a71f",
+      "sourceSha256": "400a2770ddb6c8127b3ccbe9171fca080e6bc949bd28aac5fe02476547e3ee83"
+    },
+    {
+      "id": "char_479_sleach",
+      "path": "avatars/webp/char_479_sleach.5c5ef030b7b9.webp",
+      "bytes": 12000,
+      "width": 180,
+      "height": 180,
+      "sha256": "5c5ef030b7b9910f3992aa62611a532d03a8e5ce189aef18019f16f21f3a8955",
+      "sourceSha256": "8258134a8136bb457c1bf867fb4907aaf41085167cafabb3d837173de9eb2215"
+    },
+    {
+      "id": "char_485_pallas",
+      "path": "avatars/webp/char_485_pallas.ba44b9e03099.webp",
+      "bytes": 14858,
+      "width": 180,
+      "height": 180,
+      "sha256": "ba44b9e030999807c452f72aa1b754979742e8981f53ec53013d87955ec21549",
+      "sourceSha256": "9fbd68cd6f16adb7c454ea01bfac51443a6beb31cf55df581d6fd9542796141b"
+    }
+  ]
+}

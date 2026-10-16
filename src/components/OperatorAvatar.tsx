@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import type { Operator, Profession } from '../types'
+import avatarImages from '../data/avatarImages.json'
 
-const AVATAR_REVISION = '9bf23966'
+const avatarPaths: Readonly<Record<string, string>> = avatarImages
 
 function AvatarImage({ operator, profession, size }: {
   operator?: Operator
@@ -10,12 +11,14 @@ function AvatarImage({ operator, profession, size }: {
 }) {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+  const path = operator ? avatarPaths[operator.id] : undefined
   return <span className={`operator-avatar avatar-${size}`} aria-hidden="true" title={failed ? '头像暂不可用' : undefined}>
     {(!loaded || failed) && <span className="avatar-placeholder">{profession.slice(0, 1)}</span>}
-    {operator && !failed && <img
-      src={`${import.meta.env.BASE_URL}avatars/${operator.id}.png?v=${AVATAR_REVISION}`}
+    {path && !failed && <img
+      src={`${import.meta.env.BASE_URL}${path}`}
       alt="" width={180} height={180}
       loading={size === 'list' ? 'lazy' : 'eager'} decoding="async"
+      fetchPriority={size === 'card' ? 'high' : 'auto'}
       className={loaded ? 'avatar-loaded' : ''}
       onLoad={() => setLoaded(true)} onError={() => setFailed(true)}
     />}

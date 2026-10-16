@@ -20,3 +20,7 @@
 - 仅下载当前 138 名六星对应的 `avatar/<完整干员ID>.png`，排除追加 `_2` 的精二版本和所有皮肤；异格 ID 自带的 `2` 保留。
 - 原始 PNG 合计 8,308,641 字节；逐文件核对 Git blob SHA，尺寸与 SHA-256 记录在 `public/avatars/avatar-manifest.json`。不修改原始素材、不下载半身像或立绘。
 - 该项目为第三方整理仓库，README 声明静态资源版权属于 Arknights/上海鹰角网络科技有限公司，“仅用于学习和交流，侵删”。仓库 AGPL-3.0 标识不构成游戏图片权利人的授权，游戏素材不纳入本项目 MIT 许可。
+
+### WebP 展示副本（2026-10-16）
+
+原始 138 张 PNG 与原来源清单保持不变。网站展示副本由 `scripts/optimize-avatars.py` 使用 Pillow 转为 WebP（quality=85、method=6），保留 180×180 尺寸，逐张验证 alpha 通道与原图完全一致。压缩后共 1,890,866 字节，相比原始 8,308,641 字节减少 77.2%。输出及来源哈希记录于 `public/avatars/webp-manifest.json`，组件通过 `src/data/avatarImages.json` 引用带内容哈希的文件名。转换不改变游戏素材的权利归属与原版权声明。
