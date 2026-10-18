@@ -61,7 +61,7 @@ MAA 文件在浏览器本地解析，不上传服务器。拥有状态、启用�
 
 数据声明见 DATA_SOURCES.md 和 THIRD_PARTY_NOTICES.md；网页页脚也提供来源入口。本项目为非官方辅助工具，不连接或操作游戏。
 
-头像位于 public/avatars，来自 ArknightsGameResource 固定快照；avatar-manifest.json 记录源路径、版本、尺寸及哈希。只使用与干员完整 ID 精确对应的默认头像，不使用额外的 `_2` 精二或皮肤版本。原始 PNG 保留用于来源校验与 README；网站使用 public/avatars/webp 中的压缩副本，138 张共约 **1.80 MiB**，比原始 PNG 的 7.92 MiB 减少 **77.2%**，保持 180×180 尺寸和原透明通道。列表按需加载，抽取页仅加载当前结果并提高其请求优先级。头像与 JSON 备份分离，不增加浏览器个人存储体积。
+头像位于 public/avatars，来自 ArknightsGameResource 固定快照；avatar-manifest.json 记录源路径、版本、尺寸及哈希。只使用与干员完整 ID 精确对应的默认头像，不使用额外的 `_2` 精二或皮肤版本。原始 PNG 保留用于来源校验与 README；网站使用 public/avatars/webp 中的压缩副本，138 张共约 **1.80 MiB**，比原始 PNG 的 7.92 MiB 减少 **77.2%**，保持 180×180 尺寸和原透明通道。进入网页即以低优先级预加载全部 WebP 头像，供后续抽取和干员库复用浏览器缓存；当前抽取结果仍以高优先级加载。首次访问会提前下载约 1.80 MiB，实际缓存复用受浏览器缓存策略影响。头像与 JSON 备份分离，不增加浏览器个人存储体积。
 
 运行 `node scripts/download-avatars.mjs` 可校验并补齐原始快照；此命令联网，不在构建时自动执行。随后使用安装了 Pillow 且支持 WebP 的 Python 运行 `python scripts/optimize-avatars.py`，生成质量 85 的 WebP、webp-manifest.json 和 src/data/avatarImages.json。压缩清单记录来源哈希和输出哈希；生成脚本校验尺寸与透明通道。图片文件名带内容哈希，更新后自动生成新路径，无需手工修改组件版本参数。生成的图片和映射需一起提交；常规 npm 构建无需 Python。
 
