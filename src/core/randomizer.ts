@@ -31,3 +31,7 @@ export function redrawOne(profession: Profession, operators: Operator[], states:
   const pool = alternatives.length ? alternatives : candidates
   return { ...current, [profession]: pool[pick(pool.length)].id }
 }
+
+export function lockExistingResults(current: RandomResult, locks: LocalConfig['locks']): LocalConfig['locks'] {
+  return Object.fromEntries(PROFESSIONS.map(p => [p, locks[p] || current[p] !== null])) as LocalConfig['locks']
+}

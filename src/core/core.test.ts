@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { PROFESSIONS, type Operator, type OperatorStateMap } from '../types'
-import { blankLocks, blankResult, drawAll, redrawOne } from './randomizer'
+import { blankLocks, blankResult, drawAll, redrawOne, lockExistingResults } from './randomizer'
 import { defaultConfig, loadConfig, normalizeConfig } from './storage'
 import { parseImport, exportConfig } from './configTransfer'
 
@@ -15,6 +15,22 @@ const first = () => 0
 const last = (length: number) => length - 1
 
 describe('抽取核心', () => {
+  it('批量锁定已有结果，保留原锁定且空职业仍可生成，全部解锁后可换阵容', () => {
+    const current = { ...blankResult(), 先锋: '0a' }
+    const originalLocks = { ...blankLocks(), 医疗: true }
+    const locks = lockExistingResults(current, originalLocks)
+    expect(locks).toEqual({ ...originalLocks, 先锋: true })
+    expect(originalLocks.先锋).toBe(false)
+    const next = drawAll(operators, states, current, locks, last)
+    expect(next.先锋).toBe('0a')
+    expect(next.医疗).toBe('5b')
+    expect(PROFESSIONS.every(p => next[p] !== null)).toBe(true)
+    expect(redrawOne('先锋', operators, states, current, first).先锋).toBe('0b')
+    const allLocked = lockExistingResults(next, locks)
+    expect(drawAll(operators, states, next, allLocked, first)).toEqual(next)
+    expect(drawAll(operators, states, next, blankLocks(), first).医疗).toBe('5a')
+    expect(lockExistingResults(blankResult(), blankLocks())).toEqual(blankLocks())
+  })
   it('按八职业生成对应的六星干员', () => {
     const result = drawAll(operators, states, blankResult(), blankLocks(), first)
     expect(Object.keys(result)).toEqual([...PROFESSIONS])
