@@ -5,5 +5,6 @@ export interface OperatorDatabase { version: number; updatedAt: string; operator
 export interface OperatorUserState { owned: boolean; enabled: boolean }
 export type OperatorStateMap = Record<string, OperatorUserState>
 export type RandomResult = Record<Profession, string | null>
-export interface LocalConfig { configVersion: 1; operatorStates: OperatorStateMap; locks: Record<Profession, boolean>; currentResult: RandomResult }
+export interface DrawRecord { id: string; createdAt: string; result: Record<Profession, Operator>; rules: string; favorite: boolean; note: string }
+export interface LocalConfig { configVersion: 1; operatorStates: OperatorStateMap; locks: Record<Profession, boolean>; currentResult: RandomResult; history?: DrawRecord[] }
 export interface ExportedConfig extends LocalConfig { exportedAt: string }

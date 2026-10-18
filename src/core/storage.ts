@@ -1,5 +1,6 @@
 import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap } from '../types'
 import { blankLocks, blankResult } from './randomizer'
+import { normalizeHistory } from './history'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
 export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
@@ -8,6 +9,7 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
   const base = defaultConfig(operators)
   if (!isRecord(value) || value.configVersion !== 1) return base
   const rawStates = isRecord(value.operatorStates) ? value.operatorStates : {}
+  if (value.history !== undefined) base.history = normalizeHistory(value.history)
   for (const operator of operators) {
     const state = rawStates[operator.id]
     if (isRecord(state)) base.operatorStates[operator.id] = { owned: typeof state.owned === 'boolean' ? state.owned : false, enabled: typeof state.enabled === 'boolean' ? state.enabled : true }
