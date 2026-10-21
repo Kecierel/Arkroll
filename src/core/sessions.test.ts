@@ -92,7 +92,7 @@ describe('三种随机模式', () => {
     expect(restored.config.phantomOpening).toEqual(config.phantomOpening)
     expect(config.selectedTheme).toBe('mizuki')
   })
-  it('刷新清空会话结果与新增锁定，保留模式、范围、旧职业锁定、收藏', () => {
+  it('刷新清空所有结果和锁定，保留模式、范围、收藏', () => {
     let config = drawnFull()
     const session = getSession(config, 'full')
     config = putSession(config, 'full', { ...session, squadLocked: true }) as typeof config
@@ -105,7 +105,23 @@ describe('三种随机模式', () => {
     const loaded = loadConfig(operators).config
     expect(getSession(loaded, 'full')).toEqual(blankSession())
     expect(loaded.randomMode).toBe('full'); expect(loaded.phantomOpening).toEqual(config.phantomOpening)
-    expect(loaded.locks.医疗).toBe(true); expect(loaded.history).toEqual(config.history)
+    expect(loaded.locks.医疗).toBe(false); expect(loaded.history).toEqual(config.history)
+  })
+  it('全职业全部锁定后刷新，首次生成和再次随机都保持未锁定', () => {
+    const config = defaultConfig(operators)
+    const drawn = drawSession(config, 'eight', operators, first).session
+    const locked = { ...drawn, locks: Object.fromEntries(PROFESSIONS.map(p => [p, true])) as typeof drawn.locks }
+    const saved = putSession(config, 'eight', locked)
+    vi.stubGlobal('localStorage', { getItem: () => JSON.stringify(saved) })
+    const loaded = loadConfig(operators).config
+    expect(getSession(loaded, 'eight')).toEqual(blankSession())
+    const firstDraw = drawSession(loaded, 'eight', operators, first)
+    expect(firstDraw.error).toBeUndefined()
+    expect(firstDraw.session.locks).toEqual(blankSession().locks)
+    expect(PROFESSIONS.every(p => firstDraw.session.result[p] !== null)).toBe(true)
+    const next = drawSession(putSession(loaded, 'eight', firstDraw.session), 'eight', operators, first)
+    expect(next.error).toBeUndefined()
+    expect(next.session.locks).toEqual(blankSession().locks)
   })
   it('导入时清理已排除的分队组合及其锁定，保留旧备份与已有八职业数据', () => {
     let config = drawnFull()

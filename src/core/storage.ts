@@ -6,11 +6,12 @@ import { getOpeningSettings, normalizeOpeningSettings } from './opening'
 import { normalizeSessions } from './sessions'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
-export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
+export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, noticesEnabled: true, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v)
 export function normalizeConfig(value: unknown, operators: Operator[]): LocalConfig {
   const base = defaultConfig(operators)
   if (!isRecord(value) || value.configVersion !== 1) return base
+  if (typeof value.noticesEnabled === 'boolean') base.noticesEnabled = value.noticesEnabled
   if (isISThemeId(value.selectedTheme)) base.selectedTheme = value.selectedTheme
   if (value.randomMode === 'full' || value.randomMode === 'eight' || value.randomMode === 'single') base.randomMode = value.randomMode
   if (value.sessions !== undefined) base.sessions = normalizeSessions(value.sessions, operators)
@@ -46,9 +47,10 @@ export function loadConfig(operators: Operator[]): { config: LocalConfig; warnin
     const parsed: unknown = JSON.parse(raw)
     const sampleStates = isRecord(parsed) && isRecord(parsed.operatorStates) && Object.keys(parsed.operatorStates).some(id => id.startsWith('sample_'))
     const config = normalizeConfig(parsed, operators)
-    // Keep personal settings, but start each page load with an undrawn lineup.
+    // Keep personal settings, but reset results and their locks together on page load.
     // Backup normalization remains separate so explicit imports can restore results.
     config.currentResult = blankResult()
+    config.locks = blankLocks()
     delete config.sessions
     if (sampleStates) saveConfig(config)
     return { config, warning: false, migratedSample: Boolean(sampleStates) }

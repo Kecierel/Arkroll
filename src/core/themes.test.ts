@@ -20,7 +20,7 @@ it('六个主题均可保存、刷新恢复和备份往返，保留已有设置'
     config.locks.先锋 = true
     expect(saveConfig(config)).toBe(true)
     expect(loadConfig([]).config.selectedTheme).toBe(theme.id)
-    expect(loadConfig([]).config.locks.先锋).toBe(true)
+    expect(loadConfig([]).config.locks.先锋).toBe(false)
     expect(parseImport(JSON.stringify(exportConfig(config)), [])).toEqual(config)
   }
 })

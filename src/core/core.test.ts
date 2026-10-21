@@ -68,17 +68,18 @@ describe('抽取核心', () => {
 })
 describe('本地配置和导入', () => {
   afterEach(() => vi.unstubAllGlobals())
-  it('打开页面清空旧结果，保留干员状态和锁定，锁定空结果仍可首次抽取', () => {
+  it('打开页面同时清空旧结果和锁定，保留干员状态，导入仍恢复结果和锁定', () => {
     const stored = { ...base, operatorStates: { ...states, '0a': { owned: true, enabled: false } }, locks: { ...base.locks, 先锋: true }, currentResult: drawAll(operators, states, blankResult(), blankLocks(), first) }
     vi.stubGlobal('localStorage', { getItem: () => JSON.stringify(stored) })
     const loaded = loadConfig(operators)
     expect(loaded.warning).toBe(false)
     expect(loaded.config.currentResult).toEqual(blankResult())
     expect(loaded.config.operatorStates).toEqual(stored.operatorStates)
-    expect(loaded.config.locks).toEqual(stored.locks)
+    expect(loaded.config.locks).toEqual(blankLocks())
     expect(drawAll(operators, loaded.config.operatorStates, loaded.config.currentResult, loaded.config.locks, first).先锋).toBe('0b')
     // Explicitly importing a backup still restores its lineup in the current page.
     expect(parseImport(JSON.stringify(stored), operators).currentResult).toEqual(stored.currentResult)
+    expect(parseImport(JSON.stringify(stored), operators).locks).toEqual(stored.locks)
   })
   it('新干员得到默认状态，旧干员按 id 保留', () => {
     const newer = [...operators, { id: 'new', name: '新干员', profession: '先锋' as const, rarity: 6 }]

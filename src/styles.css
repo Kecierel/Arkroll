@@ -20,3 +20,39 @@ footer a,.page-heading p a{color:#e9a64d;text-underline-offset:3px}.page-heading
 
 .card-actions button:disabled:hover{color:#d7dcda}
 .history-tabs,.history-actions,.history-header{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.history-tabs button,.history-card button{border:1px solid #454d50;background:#292f32;color:#e8eae7;padding:10px 14px;border-radius:3px}.history-tabs button[aria-pressed=true],.history-card button[aria-pressed=true]{border-color:#bb8950;color:#e9a64d}.history-help{color:#a4afb2;font-size:12px;line-height:1.8}.history-list{display:grid;gap:18px}.history-card,.history-empty{background:#252b2e;border:1px solid #41494c;padding:20px}.history-header{justify-content:space-between;font-size:13px;color:#bcc5c7}.history-lineup{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:20px 0}.history-operator{display:flex;align-items:center;gap:10px;min-width:0}.history-operator span{min-width:0;overflow-wrap:anywhere}.history-operator small,.history-operator strong{display:block}.history-operator small{font-size:11px;color:#9ba5a9;margin-bottom:5px}.history-operator strong{font-size:13px}.history-card details{color:#a4afb2;font-size:12px;line-height:1.8}.history-note{display:flex;align-items:center;gap:12px;font-size:12px;margin:16px 0}.history-note input{min-width:0;flex:1;background:#1c2226;border:1px solid #454d50;color:#eff0ec;padding:10px}.history-actions button:last-child{margin-left:auto;color:#eca095}.heading-actions{flex-wrap:wrap}@media(max-width:1000px) and (min-width:641px){.site-header{gap:16px}.top-nav button{padding:0 12px}.offline-badge{display:none}}@media(max-width:640px){.bottom-nav{grid-template-columns:repeat(4,1fr)}.history-card{padding:14px}.history-lineup{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 8px}.history-operator{gap:8px}.history-actions button{font-size:12px;padding:10px}.history-note{align-items:flex-start;flex-direction:column}.history-note input{width:100%}.history-header{font-size:12px}}
+
+/* Keep notifications outside document flow so showing one never shifts the page. */
+.notice {
+  position: fixed;
+  z-index: 100;
+  top: max(16px, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  margin: 0;
+  border: 1px solid #80603e;
+  border-left: 3px solid #e9a64d;
+  border-radius: 6px;
+  box-shadow: 0 8px 28px #0007;
+  animation: notice-lifetime 2s linear forwards;
+}
+.notice span { min-width: 0; overflow-wrap: anywhere; line-height: 1.6; }
+.notice button { flex: none; min-width: 36px; min-height: 36px; }
+@keyframes notice-lifetime {
+  0% { opacity: 0; translate: 0 -8px; }
+  8%, 90% { opacity: 1; translate: 0 0; }
+  100% { opacity: 0; translate: 0 -8px; }
+}
+.notice.notice-closing { animation: notice-dismiss 200ms ease-out forwards; }
+@keyframes notice-dismiss {
+  from { opacity: 1; translate: 0 0; }
+  to { opacity: 0; translate: 0 -8px; }
+}
+.other-settings { margin-top: 20px; }
+.other-settings button[aria-checked=true] { border-color: #bb8950; color: #e9a64d; }
+@media (prefers-reduced-motion: reduce) {
+  .notice, .notice.notice-closing { animation: none; }
+}
