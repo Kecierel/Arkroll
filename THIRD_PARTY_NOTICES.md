@@ -21,3 +21,9 @@
 React 与 React DOM 使用 MIT 许可，完整声明随站点提供于 public/licenses/react-MIT.txt 和 public/licenses/react-dom-MIT.txt。构建工具留在开发依赖中，不作为网页服务运行。
 
 网页可见的来源入口为 /data-sources.html。本项目由 Kecierel 有权授权的原创代码和文档采用根目录 LICENSE 中的 MIT 许可。本说明中的上游游戏数据、素材和第三方依赖不因该许可而重新授权，继续保留各自权利与适用许可。
+
+## PRTS集成战略主题资料
+
+六主题的分队、效果摘要、解锁条件与招募组合整理自PRTS，核对日期2026-10-21。各页链接、修订与资料范围见 DATA_SOURCES.md 和 src/data/openingSources.json。摘要对原页面内容进行了精简，区分了主题、难度及强化条件；不是完整游戏规则的替代品。
+
+PRTS页脚声明游戏相关内容版权属于上海鹰角网络科技有限公司及其关联公司；除另有声明外，网站其他内容采用[知识共享署名-非商业性使用-相同方式共享4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)。本项目中的相应资料整理与改写摘要保留适用的来源和许可声明，不纳入代码的MIT许可，亦不改变游戏资料的权利归属。

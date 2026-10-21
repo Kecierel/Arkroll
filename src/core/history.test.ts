@@ -15,7 +15,7 @@ describe('history and favorites', () => {
   it('captures independent snapshots and rejects incomplete lineups', () => {
     const config = setup(), row = captureRecord(config, operators)!
     config.currentResult.先锋 = null
-    expect(row.result.先锋.id).toBeTruthy()
+    expect(row.result.先锋!.id).toBeTruthy()
     expect(row.rules).toContain('先锋候选')
     expect(captureRecord(config, operators)).toBeNull()
   })
@@ -30,14 +30,14 @@ describe('history and favorites', () => {
   })
   it('restores eligible professions and reports invalid ones without changing settings', () => {
     const config = setup(), row = captureRecord(config, operators)!
-    config.operatorStates[row.result.先锋.id].enabled = false
+    config.operatorStates[row.result.先锋!.id].enabled = false
     config.locks.先锋 = true
     const restored = restoreRecord(row, config, operators)
     expect(restored.invalid).toEqual(['先锋'])
     expect(restored.result.先锋).toBeNull()
-    expect(restored.result.近卫).toBe(row.result.近卫.id)
+    expect(restored.result.近卫).toBe(row.result.近卫!.id)
     expect(config.locks.先锋).toBe(true)
-    expect(config.operatorStates[row.result.先锋.id].enabled).toBe(false)
+    expect(config.operatorStates[row.result.先锋!.id].enabled).toBe(false)
   })
   it('roundtrips backups and accepts old backups without history', () => {
     const config = setup(); config.history = [{ ...captureRecord(config, operators)!, favorite: true, note: '测试备注' }]
@@ -46,9 +46,9 @@ describe('history and favorites', () => {
   })
   it('preserves unavailable operator snapshots in backup but does not restore them', () => {
     const config = setup(), row = captureRecord(config, operators)!
-    row.result.先锋.id = 'removed-id'; config.history = [row]
+    row.result.先锋!.id = 'removed-id'; config.history = [row]
     const imported = parseImport(JSON.stringify(config), operators)
-    expect(imported.history![0].result.先锋.id).toBe('removed-id')
+    expect(imported.history![0].result.先锋!.id).toBe('removed-id')
     expect(restoreRecord(row, config, operators).invalid).toContain('先锋')
   })
   it('persists history on reload while clearing current results', () => {
