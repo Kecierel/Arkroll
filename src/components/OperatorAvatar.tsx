@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProfessionIcon from './ProfessionIcon'
 import type { Operator, Profession } from '../types'
 import avatarImages from '../data/avatarImages.json'
 
@@ -6,14 +7,14 @@ const avatarPaths: Readonly<Record<string, string>> = avatarImages
 
 function AvatarImage({ operator, profession, size }: {
   operator?: Operator
-  profession: Profession
+  profession?: Profession
   size: 'card' | 'list'
 }) {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
   const path = operator ? avatarPaths[operator.id] : undefined
   return <span className={`operator-avatar avatar-${size}`} aria-hidden="true" title={failed ? '头像暂不可用' : undefined}>
-    {(!loaded || failed) && <span className="avatar-placeholder">{profession.slice(0, 1)}</span>}
+    {(!loaded || failed) && <span className="avatar-placeholder">{profession ? <ProfessionIcon key={profession} profession={profession} variant="large"/> : '✦'}</span>}
     {path && !failed && <img
       src={`${import.meta.env.BASE_URL}${path}`}
       alt="" width={180} height={180}
@@ -27,7 +28,7 @@ function AvatarImage({ operator, profession, size }: {
 
 export default function OperatorAvatar(props: {
   operator?: Operator
-  profession: Profession
+  profession?: Profession
   size: 'card' | 'list'
 }) {
   // Remount image state when a redraw changes the operator, including after failure.

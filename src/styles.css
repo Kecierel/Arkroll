@@ -56,3 +56,15 @@ footer a,.page-heading p a{color:#e9a64d;text-underline-offset:3px}.page-heading
 @media (prefers-reduced-motion: reduce) {
   .notice, .notice.notice-closing { animation: none; }
 }
+
+/* Profession artwork: compact marks beside labels, detailed marks in empty avatars. */
+.profession-label { display: inline-flex; align-items: center; gap: 7px; }
+.profession-icon-image { display: inline-block; flex: none; object-fit: contain; vertical-align: middle; }
+.profession-icon-small { width: 22px; height: 22px; }
+.pool-heading .profession-icon-image { width: 36px; height: 36px; }
+.pool-heading .profession-label { gap: 10px; }
+.history-profession .profession-icon-small { width: 16px; height: 16px; }
+.history-operator small.history-profession { display: inline-flex; }
+.single-profession { justify-content: center; }
+.operator-avatar .avatar-placeholder { background: #000; }
+.operator-avatar .avatar-placeholder .profession-icon-large { width: 100%; height: 100%; opacity: 1; object-fit: contain; }
