@@ -1,4 +1,4 @@
-# v0.2 干员数据来源与核对
+# 数据与素材来源
 
 数据快照日期：**2026-10-14**。范围为国服简体中文、MAA 干员识别全量名单中的六星干员。`src/data/operators.json` 共 138 条：先锋 11、近卫 31、重装 15、狙击 17、术师 21、医疗 9、辅助 15、特种 19。
 
@@ -14,7 +14,7 @@
 
 许可提示：MaaResource 仓库标注 AGPL-3.0；本地工具仅保留最小事实字段。发布保留上游来源、版本和适用许可信息，见 THIRD_PARTY_NOTICES.md。本文件记录数据出处，不代表已经完成公开发布许可审查。
 
-## v0.3 默认头像
+## 默认头像
 
 - 来源：[yuanyan3060/ArknightsGameResource](https://github.com/yuanyan3060/ArknightsGameResource/tree/9bf239661e37766fba585806fb9fa67e79bb679e/avatar)，固定提交 `9bf239661e37766fba585806fb9fa67e79bb679e`。
 - 仅下载当前 138 名六星对应的 `avatar/<完整干员ID>.png`，排除追加 `_2` 的精二版本和所有皮肤；异格 ID 自带的 `2` 保留。
