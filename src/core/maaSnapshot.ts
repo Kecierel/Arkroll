@@ -23,5 +23,5 @@ export function restoreMaaSnapshot(config: LocalConfig, operators: Operator[]): 
   const snapshot = normalizeMaaSnapshot(config.maaSnapshot, operators)
   if (!snapshot) throw new Error('暂无可用的 MAA 配置，请先在设置中重新导入并确认 MAA 文件。')
   const restored: LocalConfig = { ...config, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: snapshot.operatorStates[o.id]?.owned ?? false, enabled: false }])) }
-  return applyTraining(restored, operators, config.trainingThreshold ?? 1)
+  return applyTraining(restored, operators, config.trainingThreshold ?? 0)
 }

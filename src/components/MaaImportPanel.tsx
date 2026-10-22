@@ -13,7 +13,7 @@ interface Props {
 export default function MaaImportPanel({ operators, config, onApply, onNotice }: Props) {
   const [source, setSource] = useState<{ text: string; name: string } | null>(null)
   const [filter, setFilter] = useState(false)
-  const [threshold, setThreshold] = useState<TrainingThreshold>(config.trainingThreshold ?? 1)
+  const [threshold, setThreshold] = useState<TrainingThreshold>(config.trainingThreshold ?? 0)
   const request = useRef(0)
   // Derive from current config so a changed state or threshold cannot leave a stale preview.
   const preview = source ? previewMaaImport(source.text, operators, config.operatorStates, filter ? threshold : undefined) : null
@@ -21,7 +21,7 @@ export default function MaaImportPanel({ operators, config, onApply, onNotice }:
     const token = ++request.current
     setSource(null)
     setFilter(false)
-    setThreshold(config.trainingThreshold ?? 1)
+    setThreshold(config.trainingThreshold ?? 0)
     if (!file) return
     if (file.size > 5_000_000) { onNotice('MAA 文件过大，请检查是否选择了干员识别 JSON。'); return }
     try {

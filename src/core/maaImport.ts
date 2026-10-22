@@ -81,7 +81,7 @@ export function previewMaaImport(text: string, operators: Operator[], states: Op
   const missingLocal = operators.length - matched
   const ownedAfter = operators.reduce((count, operator) =>
     count + Number(ownership[operator.id]), 0)
-  return { training, threshold, filter: threshold ? previewTraining(operators, ownership, training, threshold) : undefined, ownership, matched, totalSixStar, unknownSixStar, missingLocal, gained, lost, unchanged, ownedAfter }
+  return { training, threshold, filter: threshold !== undefined ? previewTraining(operators, ownership, training, threshold) : undefined, ownership, matched, totalSixStar, unknownSixStar, missingLocal, gained, lost, unchanged, ownedAfter }
 }
 
 export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): LocalConfig {
@@ -90,5 +90,5 @@ export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): 
     const owned = preview.ownership[id] ?? false
     return [id, { owned, enabled: owned && (preview.filter?.enabled[id] ?? !preview.threshold) }]
   }))
-  return { ...config, operatorStates, operatorTraining: preview.training, maaSnapshot: captureMaaSnapshot(operatorStates, preview.training), ...(preview.threshold ? { trainingThreshold: preview.threshold } : {}) }
+  return { ...config, operatorStates, operatorTraining: preview.training, maaSnapshot: captureMaaSnapshot(operatorStates, preview.training), ...(preview.threshold !== undefined ? { trainingThreshold: preview.threshold } : {}) }
 }

@@ -96,4 +96,19 @@ describe('最近一次MAA配置快照', () => {
     expect(restored.operatorStates[operators[2].id]).toEqual({ owned: true, enabled: false })
   })
 
+  it('无要求下恢复MAA拥有，未知及低练度都启用，仍保留当前练度', () => {
+    const config = imported(), id = operators[1].id
+    config.trainingThreshold = 0
+    config.operatorStates[id] = { owned: false, enabled: false }
+    config.operatorTraining![id] = { elite: 0, level: 1 }
+    delete config.operatorTraining![operators[2].id]
+    const restored = restoreMaaSnapshot(config, operators)
+    expect(restored.trainingThreshold).toBe(0)
+    expect(restored.operatorStates[id]).toEqual({ owned: true, enabled: true })
+    expect(restored.operatorStates[operators[2].id]).toEqual({ owned: true, enabled: true })
+    expect(restored.operatorStates[operators[0].id]).toEqual({ owned: false, enabled: false })
+    expect(restored.operatorTraining).toEqual(config.operatorTraining)
+    expect(restored.maaSnapshot).toEqual(config.maaSnapshot)
+  })
+
 })

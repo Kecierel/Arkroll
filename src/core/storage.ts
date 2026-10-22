@@ -8,7 +8,7 @@ import { getOpeningSettings, normalizeOpeningSettings } from './opening'
 import { normalizeSessions } from './sessions'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
-export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, noticesEnabled: true, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
+export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, trainingThreshold: 0, noticesEnabled: true, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v)
 export function normalizeConfig(value: unknown, operators: Operator[]): LocalConfig {
   const base = defaultConfig(operators)
@@ -16,7 +16,7 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
   const maaSnapshot = normalizeMaaSnapshot(value.maaSnapshot, operators)
   if (maaSnapshot) base.maaSnapshot = maaSnapshot
   if (value.operatorTraining !== undefined) base.operatorTraining = normalizeTraining(value.operatorTraining, operators)
-  if (value.trainingThreshold === 1 || value.trainingThreshold === 60) base.trainingThreshold = value.trainingThreshold
+  if (value.trainingThreshold === 0 || value.trainingThreshold === 1 || value.trainingThreshold === 60) base.trainingThreshold = value.trainingThreshold
   if (typeof value.noticesEnabled === 'boolean') base.noticesEnabled = value.noticesEnabled
   if (isISThemeId(value.selectedTheme)) base.selectedTheme = value.selectedTheme
   if (value.randomMode === 'full' || value.randomMode === 'eight' || value.randomMode === 'single') base.randomMode = value.randomMode

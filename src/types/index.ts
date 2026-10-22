@@ -3,7 +3,7 @@ export type Profession = typeof PROFESSIONS[number]
 export interface Operator { id: string; name: string; profession: Profession; rarity: number }
 export interface OperatorDatabase { version: number; updatedAt: string; operators: Operator[] }
 export interface OperatorTraining { elite: 0 | 1 | 2; level: number }
-export type TrainingThreshold = 1 | 60
+export type TrainingThreshold = 0 | 1 | 60
 export type OperatorTrainingMap = Record<string, OperatorTraining>
 export interface OperatorUserState { owned: boolean; enabled: boolean }
 export type OperatorStateMap = Record<string, OperatorUserState>

@@ -2,7 +2,7 @@ import { describe, expect, it, vi, afterEach } from 'vitest'
 import database from '../data/operators.json'
 import type { LocalConfig, Operator } from '../types'
 import { PROFESSIONS } from '../types'
-import { applyTraining, meetsThreshold, normalizeTraining, parseTraining, previewConfigTraining, trainingLabel, setOperatorTraining } from './training'
+import { applyTraining, meetsThreshold, normalizeTraining, parseTraining, previewConfigTraining, trainingLabel, setOperatorTraining, thresholdLabel } from './training'
 import { applyMaaImport, previewMaaImport } from './maaImport'
 import { defaultConfig, loadConfig, saveConfig, STORAGE_KEY } from './storage'
 import { exportConfig } from './configTransfer'
@@ -110,7 +110,7 @@ describe('练度存储与备份', () => {
     const old = defaultConfig(operators)
     const restored = parseBackupWithMigration(JSON.stringify(exportConfig(old)), operators).config
     expect(restored.operatorTraining).toBeUndefined()
-    expect(restored.trainingThreshold ?? 1).toBe(1)
+    expect(restored.trainingThreshold).toBe(0)
     const next = applyTraining(trained(), operators, 60)
     expect(parseBackupWithMigration(JSON.stringify(exportConfig(next)), operators).config).toEqual(next)
   })
@@ -118,7 +118,7 @@ describe('练度存储与备份', () => {
     const config = { ...trained(), trainingThreshold: 90, operatorTraining: { [ids[0]]: { elite: 1, level: 90 }, [ids[1]]: { elite: 2, level: 60 }, unknown: { elite: 2, level: 60 } } }
     const restored = parseBackupWithMigration(JSON.stringify(config), operators).config
     expect(restored.operatorTraining).toEqual({ [ids[1]]: { elite: 2, level: 60 } })
-    expect(restored.trainingThreshold).toBeUndefined()
+    expect(restored.trainingThreshold).toBe(0)
     expect(normalizeTraining(null, operators)).toEqual({})
   })
   it('刷新保留练度与偏好，沿用原存储键和版本', () => {
@@ -164,5 +164,57 @@ describe('手动编辑练度', () => {
     expect(applyTraining(config, operators, 60).operatorStates[ids[0]].enabled).toBe(false)
     const imported = applyMaaImport(previewMaaImport(JSON.stringify(source()), operators, config.operatorStates), config)
     expect(imported.operatorTraining?.[ids[0]]).toEqual({ elite: 2, level: 60 })
+  })
+})
+
+describe('v0.4.4 无练度要求', () => {
+  it('无要求时已拥有者全部启用，包括未养成与未知练度，未拥有者禁用', () => {
+    const config = trained()
+    config.operatorTraining![ids[0]] = { elite: 0, level: 1 }
+    delete config.operatorTraining![ids[1]]
+    config.operatorStates[ids[2]].owned = false
+    config.operatorStates[ids[3]].enabled = false
+    const before = structuredClone(config), preview = previewConfigTraining(config, operators, 0)
+    expect(preview.below).toEqual([]); expect(preview.unknown).toEqual([])
+    expect(preview.enabledCount).toBe(operators.length - 1)
+    const next = applyTraining(config, operators, 0)
+    for (const id of [ids[0], ids[1], ids[3]]) expect(next.operatorStates[id].enabled).toBe(true)
+    expect(next.operatorStates[ids[2]]).toEqual({ owned: false, enabled: false })
+    expect(next.operatorTraining).toEqual(config.operatorTraining)
+    expect(next.maaSnapshot).toEqual(config.maaSnapshot)
+    expect(config).toEqual(before)
+    expect(thresholdLabel(0)).toBe('无要求')
+  })
+  it('显式无要求导入不能被真假判断丢掉，能替换旧60要求', () => {
+    const config = applyTraining(trained(), operators, 60), rows = source()
+    rows[0].elite = 0; rows[0].level = 1
+    rows[1].level = 0
+    const preview = previewMaaImport(JSON.stringify(rows), operators, config.operatorStates, 0)
+    expect(preview.filter?.enabledCount).toBe(operators.length)
+    const next = applyMaaImport(preview, config)
+    expect(next.trainingThreshold).toBe(0)
+    expect(Object.values(next.operatorStates).every(s => s.enabled)).toBe(true)
+  })
+  it('从无要求切回1与60仍正确筛选', () => {
+    const config = trained()
+    config.operatorTraining![ids[0]] = { elite: 0, level: 1 }
+    config.operatorTraining![ids[1]] = { elite: 2, level: 30 }
+    delete config.operatorTraining![ids[2]]
+    const unrestricted = applyTraining(config, operators, 0)
+    expect(applyTraining(unrestricted, operators, 1).operatorStates[ids[0]].enabled).toBe(false)
+    expect(applyTraining(unrestricted, operators, 1).operatorStates[ids[1]].enabled).toBe(true)
+    expect(applyTraining(unrestricted, operators, 60).operatorStates[ids[1]].enabled).toBe(false)
+    expect(applyTraining(unrestricted, operators, 1).operatorStates[ids[2]].enabled).toBe(false)
+  })
+  it('无要求备份与刷新保留0，旧1/60设置保持，新配置默认0', () => {
+    expect(defaultConfig(operators).trainingThreshold).toBe(0)
+    for (const threshold of [0, 1, 60] as const) {
+      const config = applyTraining(trained(), operators, threshold)
+      expect(parseBackupWithMigration(JSON.stringify(exportConfig(config)), operators).config.trainingThreshold).toBe(threshold)
+    }
+    const memory = new Map<string, string>()
+    vi.stubGlobal('localStorage', { setItem: (k: string, v: string) => memory.set(k, v), getItem: (k: string) => memory.get(k) ?? null })
+    saveConfig(applyTraining(trained(), operators, 0))
+    expect(loadConfig(operators).config.trainingThreshold).toBe(0)
   })
 })

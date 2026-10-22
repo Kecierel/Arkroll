@@ -20,9 +20,9 @@ export function normalizeTraining(value: unknown, operators: Operator[]): Operat
 export function trainingLabel(training?: OperatorTraining): string {
   return training ? `${['精零', '精一', '精二'][training.elite]}${training.level}级` : '练度未知'
 }
-export function thresholdLabel(threshold: TrainingThreshold): string { return `精二${threshold}级` }
+export function thresholdLabel(threshold: TrainingThreshold): string { return threshold === 0 ? '无要求' : `精二${threshold}级` }
 export function meetsThreshold(training: OperatorTraining, threshold: TrainingThreshold): boolean {
-  return training.elite === 2 && training.level >= threshold
+  return threshold === 0 || (training.elite === 2 && training.level >= threshold)
 }
 export interface TrainingPreview {
   enabled: Record<string, boolean>
@@ -35,6 +35,7 @@ export function previewTraining(operators: Operator[], ownership: Record<string,
   for (const operator of operators) {
     enabled[operator.id] = false
     if (!ownership[operator.id]) continue
+    if (threshold === 0) { enabled[operator.id] = true; continue }
     const value = parseTraining(training[operator.id])
     if (!value) unknown.push(operator)
     else if (!meetsThreshold(value, threshold)) below.push(operator)
