@@ -90,5 +90,5 @@ export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): 
     const owned = preview.ownership[id] ?? false
     return [id, { owned, enabled: owned && (preview.filter?.enabled[id] ?? !preview.threshold) }]
   }))
-  return { ...config, operatorStates, operatorTraining: preview.training, maaSnapshot: captureMaaSnapshot(operatorStates, preview.training), ...(preview.threshold !== undefined ? { trainingThreshold: preview.threshold } : {}) }
+  return { ...config, operatorStates, operatorTraining: preview.training, maaSnapshot: captureMaaSnapshot(operatorStates, preview.training), trainingThreshold: preview.threshold ?? 0 }
 }

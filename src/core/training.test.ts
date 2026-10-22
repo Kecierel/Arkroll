@@ -218,3 +218,17 @@ describe('v0.4.4 无练度要求', () => {
     expect(loadConfig(operators).config.trainingThreshold).toBe(0)
   })
 })
+
+describe('MAA导入与干员库要求联动', () => {
+  it.each([undefined, 0, 1, 60] as const)('导入实际要求%s覆盖旧60要求，未勾选等同无要求', threshold => {
+    const config = applyTraining(trained(), operators, 60), rows = source()
+    rows[0].elite = 0; rows[0].level = 1
+    const before = structuredClone(config)
+    const preview = previewMaaImport(JSON.stringify(rows), operators, config.operatorStates, threshold)
+    expect(config).toEqual(before)
+    const next = applyMaaImport(preview, config)
+    expect(next.trainingThreshold).toBe(threshold ?? 0)
+    expect(next.operatorStates[ids[0]].enabled).toBe(threshold === undefined || threshold === 0)
+    expect(config).toEqual(before)
+  })
+})
