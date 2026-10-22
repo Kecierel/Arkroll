@@ -1,10 +1,12 @@
 # Arkroll · 集成战略6★随机工具
 
-🌐 **在线使用：[Arkroll](https://arkroll.pages.dev/)** · [源码仓库](https://github.com/Kecierel/Arkroll)
+🌐 **在线使用：[Arkroll](https://arkroll.pages.dev/)**
+
+**当前最新干员：克莱门莎** <img src="public/avatars/char_4231_clemnt.png" alt="克莱门莎默认头像" width="48" height="48" />
 
 为《明日方舟》集成战略挑战随机选择分队、招募组合和6★干员。纯前端实现，无需账号或后端。
 
-当前源码版本 **0.4.2**。内置干员名单快照：2026-10-14；最新收录：克莱门莎 <img src="public/avatars/char_4231_clemnt.png" alt="克莱门莎默认头像" width="48" height="48" />。名单随部署更新，不代表实时最新游戏名单。
+当前源码版本 **0.4.2**。干员数据快照与核对日期见 [数据来源](DATA_SOURCES.md)。
 
 ## 三种随机模式
 
