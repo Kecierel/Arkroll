@@ -1,5 +1,7 @@
 import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap } from '../types'
 import { blankLocks, blankResult } from './randomizer'
+import { normalizeMaaSnapshot } from './maaSnapshot'
+import { normalizeTraining } from './training'
 import { normalizeHistory } from './history'
 import { DEFAULT_THEME_ID, IS_THEMES, isISThemeId } from '../data/themes'
 import { getOpeningSettings, normalizeOpeningSettings } from './opening'
@@ -11,6 +13,10 @@ const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'obj
 export function normalizeConfig(value: unknown, operators: Operator[]): LocalConfig {
   const base = defaultConfig(operators)
   if (!isRecord(value) || value.configVersion !== 1) return base
+  const maaSnapshot = normalizeMaaSnapshot(value.maaSnapshot, operators)
+  if (maaSnapshot) base.maaSnapshot = maaSnapshot
+  if (value.operatorTraining !== undefined) base.operatorTraining = normalizeTraining(value.operatorTraining, operators)
+  if (value.trainingThreshold === 1 || value.trainingThreshold === 60) base.trainingThreshold = value.trainingThreshold
   if (typeof value.noticesEnabled === 'boolean') base.noticesEnabled = value.noticesEnabled
   if (isISThemeId(value.selectedTheme)) base.selectedTheme = value.selectedTheme
   if (value.randomMode === 'full' || value.randomMode === 'eight' || value.randomMode === 'single') base.randomMode = value.randomMode

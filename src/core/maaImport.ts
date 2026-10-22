@@ -1,7 +1,13 @@
-import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap } from '../types'
+import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap, type OperatorTrainingMap, type OperatorTraining, type TrainingThreshold } from '../types'
 
-interface MaaOperator { id: string; name: string; rarity: number; own: boolean }
+import { captureMaaSnapshot } from './maaSnapshot'
+import { parseTraining, previewTraining, type TrainingPreview } from './training'
+
+interface MaaOperator { training?: OperatorTraining; id: string; name: string; rarity: number; own: boolean }
 export interface MaaImportPreview {
+  training: OperatorTrainingMap
+  threshold?: TrainingThreshold
+  filter?: TrainingPreview
   ownership: Record<string, boolean>
   matched: number
   totalSixStar: number
@@ -33,14 +39,15 @@ export function parseMaaExport(text: string): MaaOperator[] {
     }
     if (seen.has(value.id)) throw new Error('MAA 文件包含重复的干员 ID。')
     seen.add(value.id)
-    rows.push({ id: value.id, name: value.name, rarity: value.rarity as number, own: value.own })
+    rows.push({ id: value.id, name: value.name, rarity: value.rarity as number, own: value.own, training: parseTraining(value) })
   }
   return rows
 }
 
-export function previewMaaImport(text: string, operators: Operator[], states: OperatorStateMap): MaaImportPreview {
+export function previewMaaImport(text: string, operators: Operator[], states: OperatorStateMap, threshold?: TrainingThreshold): MaaImportPreview {
   const rows = parseMaaExport(text)
   const byId = new Map(operators.map(operator => [operator.id, operator]))
+  const training: OperatorTrainingMap = {}
   const ownership: Record<string, boolean> = Object.fromEntries(operators.map(operator => [operator.id, false]))
   let matched = 0
   let totalSixStar = 0
@@ -56,6 +63,7 @@ export function previewMaaImport(text: string, operators: Operator[], states: Op
     if (!operator) { unknownSixStar++; continue }
     if (row.name !== operator.name || operator.rarity !== 6) throw new Error(`MAA 文件中的 ID 与名称或星级不符：${row.id}`)
     ownership[row.id] = row.own
+    if (row.own && row.training) training[row.id] = row.training
     matched++
     coveredProfessions.add(operator.profession)
 
@@ -73,14 +81,14 @@ export function previewMaaImport(text: string, operators: Operator[], states: Op
   const missingLocal = operators.length - matched
   const ownedAfter = operators.reduce((count, operator) =>
     count + Number(ownership[operator.id]), 0)
-  return { ownership, matched, totalSixStar, unknownSixStar, missingLocal, gained, lost, unchanged, ownedAfter }
+  return { training, threshold, filter: threshold ? previewTraining(operators, ownership, training, threshold) : undefined, ownership, matched, totalSixStar, unknownSixStar, missingLocal, gained, lost, unchanged, ownedAfter }
 }
 
 export function applyMaaImport(preview: MaaImportPreview, config: LocalConfig): LocalConfig {
   const ids = new Set([...Object.keys(config.operatorStates), ...Object.keys(preview.ownership)])
   const operatorStates: OperatorStateMap = Object.fromEntries([...ids].map(id => {
     const owned = preview.ownership[id] ?? false
-    return [id, { owned, enabled: owned }]
+    return [id, { owned, enabled: owned && (preview.filter?.enabled[id] ?? !preview.threshold) }]
   }))
-  return { ...config, operatorStates }
+  return { ...config, operatorStates, operatorTraining: preview.training, maaSnapshot: captureMaaSnapshot(operatorStates, preview.training), ...(preview.threshold ? { trainingThreshold: preview.threshold } : {}) }
 }

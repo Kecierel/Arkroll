@@ -59,3 +59,11 @@ PRTS页脚声明：游戏内容权利归游戏权利人；除另有声明的内�
 职业图标由用户于2026-10-21提供，包含八职业26×26简略PNG及约256×256详细PNG（医疗为255×256），保留原图格式。原始下载页面及具体授权条件尚待补充；素材作为游戏相关第三方美术，不纳入本项目代码的MIT许可。
 
 使用位置：简略图用于抽取页和历史的职业标识；详细图用于干员库36px职业标题及头像占位。保留职业文字，素材不写入个人配置或备份。
+
+## v0.4.3 练度字段核对
+
+2026-10-22读取MAA官方源码，核实导出使用整数 `elite`（精英阶段0/1/2）和 `level`（该阶段等级）：[字段模型](https://github.com/MaaAssistantArknights/MaaAssistantArknights/blob/dev/src/MaaWpfGui/Models/OperBoxData.cs)、[ExportOperBox导出实现](https://github.com/MaaAssistantArknights/MaaAssistantArknights/blob/dev/src/MaaWpfGui/ViewModels/UI/ToolboxViewModel.cs)、[精英阶段识别实现](https://github.com/MaaAssistantArknights/MaaAssistantArknights/blob/dev/src/MaaCore/Vision/Miscellaneous/OperBoxImageAnalyzer.cpp)。已拥有记录写入识别值，未拥有记录使用默认值，不能当作有效练度。
+
+同日核对[公开游戏数据镜像character_table.json](https://github.com/Kengxxiao/ArknightsGameData/blob/master/zh_CN/gamedata/excel/character_table.json)中六星的 `phases.maxLevel`，上限为50、80、90；该仓库是游戏数据镜像，不是官方API。本功能只接受对应阶段内从1开始的整数等级，缺失、零值、类型错误或越界均视为未知；无法识别值域内的OCR误识别，实际练度仍需用户核对。
+
+此次仅核实字段和值域，没有更新公共干员名单或原数据快照日期，也未复制第三方实现源码。个人练度仅随本机配置与用户主动导出的备份保存，不加入公开名单；页面验证使用合成数据。

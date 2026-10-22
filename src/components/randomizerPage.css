@@ -4,3 +4,5 @@
 .full-mode-settings{margin:-6px 0 22px;padding:14px 18px;background:#202629;border-left:2px solid #9f7a46}.full-mode-settings .random-theme{display:flex;align-items:center;gap:18px}.full-mode-settings .random-theme label{margin:0;flex-shrink:0}.full-mode-settings .random-theme select{max-width:100%}@media(max-width:640px){.full-mode-settings{padding:12px 14px}.full-mode-settings .random-theme{align-items:stretch;flex-direction:column;gap:8px}}
 
 .mode-tabs .mode-detail{display:inline-block}
+
+.card-content .result-training{display:block;margin-top:6px;color:#b9c4c7;font-size:12px;line-height:1.5}.single-result p.result-training{margin:0 0 6px;color:#e9a64d}
