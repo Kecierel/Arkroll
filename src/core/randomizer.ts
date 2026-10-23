@@ -1,9 +1,9 @@
-import { PROFESSIONS, type Operator, type OperatorStateMap, type Profession, type RandomResult, type LocalConfig } from '../types'
+import { PROFESSIONS, type Operator, type OperatorStateMap, type Profession, type RandomResult, type RandomLocks, type RecruitCount } from '../types'
 import { eligibleFor } from './operatorPool'
 
 export type PickIndex = (length: number) => number
 export const randomIndex: PickIndex = length => {
-  if (length < 1) throw new RangeError('候选人数必须大于零')
+  if (length < 1) throw new RangeError('候选数量必须大于零')
   if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
     const buffer = new Uint32Array(1)
     const limit = Math.floor(0x100000000 / length) * length
@@ -12,26 +12,37 @@ export const randomIndex: PickIndex = length => {
   }
   return Math.floor(Math.random() * length)
 }
-export const blankResult = (): RandomResult => Object.fromEntries(PROFESSIONS.map(p => [p, null])) as RandomResult
-export const blankLocks = (): LocalConfig['locks'] => Object.fromEntries(PROFESSIONS.map(p => [p, false])) as LocalConfig['locks']
+export const blankResult = (count: RecruitCount = 1): RandomResult => Object.fromEntries(PROFESSIONS.map(p => [p, Array<string | null>(count).fill(null)])) as RandomResult
+export const blankLocks = (count: RecruitCount = 1): RandomLocks => Object.fromEntries(PROFESSIONS.map(p => [p, Array<boolean>(count).fill(false)])) as RandomLocks
 
-export function drawAll(operators: Operator[], states: OperatorStateMap, current: RandomResult, locks: LocalConfig['locks'], pick: PickIndex = randomIndex): RandomResult {
-  const next = { ...current }
-  for (const profession of PROFESSIONS) {
-    if (locks[profession] && current[profession] !== null) continue
-    const candidates = eligibleFor(profession, operators, states)
-    next[profession] = candidates.length ? candidates[pick(candidates.length)].id : null
-  }
-  return next
+/** All validation happens before consuming randomness or changing a result. */
+export function lineupShortages(operators: Operator[], states: OperatorStateMap, current: RandomResult, locks: RandomLocks): string[] {
+  return PROFESSIONS.flatMap(p => {
+    const held = current[p].filter((id, i): id is string => !!id && locks[p][i])
+    const available = held.length + eligibleFor(p, operators, states).filter(o => !held.includes(o.id)).length
+    return available < current[p].length ? [`${p}可用${available}名，需要${current[p].length}名（差${current[p].length - available}名）`] : []
+  })
 }
-export function redrawOne(profession: Profession, operators: Operator[], states: OperatorStateMap, current: RandomResult, pick: PickIndex = randomIndex): RandomResult {
-  const candidates = eligibleFor(profession, operators, states)
-  if (!candidates.length) return { ...current, [profession]: null }
-  const alternatives = candidates.filter(candidate => candidate.id !== current[profession])
+export function drawAll(operators: Operator[], states: OperatorStateMap, current: RandomResult, locks: RandomLocks, pick: PickIndex = randomIndex): RandomResult {
+  if (lineupShortages(operators, states, current, locks).length) return current
+  return Object.fromEntries(PROFESSIONS.map(p => {
+    const held = current[p].filter((id, i): id is string => !!id && locks[p][i])
+    const pool = eligibleFor(p, operators, states).filter(o => !held.includes(o.id))
+    return [p, current[p].map((id, i) => {
+      if (id && locks[p][i]) return id
+      return pool.splice(pick(pool.length), 1)[0].id
+    })]
+  })) as RandomResult
+}
+export function redrawOne(profession: Profession, operators: Operator[], states: OperatorStateMap, current: RandomResult, pick: PickIndex = randomIndex, slot = 0): RandomResult {
+  if (slot < 0 || slot >= current[profession].length) return current
+  const others = current[profession].filter((_, i) => i !== slot)
+  const candidates = eligibleFor(profession, operators, states).filter(o => !others.includes(o.id))
+  const alternatives = candidates.filter(o => o.id !== current[profession][slot])
   const pool = alternatives.length ? alternatives : candidates
-  return { ...current, [profession]: pool[pick(pool.length)].id }
+  if (!pool.length) return current
+  return { ...current, [profession]: current[profession].map((id, i) => i === slot ? pool[pick(pool.length)].id : id) }
 }
-
-export function lockExistingResults(current: RandomResult, locks: LocalConfig['locks']): LocalConfig['locks'] {
-  return Object.fromEntries(PROFESSIONS.map(p => [p, locks[p] || current[p] !== null])) as LocalConfig['locks']
+export function lockExistingResults(current: RandomResult, _locks: RandomLocks): RandomLocks {
+  return Object.fromEntries(PROFESSIONS.map(p => [p, current[p].map(id => !!id)])) as RandomLocks
 }

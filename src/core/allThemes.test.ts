@@ -36,7 +36,7 @@ describe.each(IS_THEMES)('$name', theme => {
     config = setOpeningSettings(config, theme.id, { excludedSquads: data.squads.slice(0, -1).map(o => o.id), excludedRecruits: data.recruits.slice(0, -1).map(o => o.id) })
     const draw = drawSession(config, 'full', operators).session
     expect(draw.squad).toBe(data.squads.at(-1)!.id); expect(draw.recruit).toBe(data.recruits.at(-1)!.id)
-    config = putSession(config, 'full', { ...draw, squadLocked: true, recruitLocked: true, locks: Object.fromEntries(PROFESSIONS.map(p => [p, true])) as typeof draw.locks })
+    config = putSession(config, 'full', { ...draw, squadLocked: true, recruitLocked: true, locks: Object.fromEntries(PROFESSIONS.map(p => [p, [true]])) as typeof draw.locks })
     expect(drawSession(config, 'full', operators).session).toEqual(getSession(config, 'full'))
     const row = captureModeRecord(config, operators, 'full', true)!
     expect(row.theme).toBe(theme.id)

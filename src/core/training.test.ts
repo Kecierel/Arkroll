@@ -79,7 +79,7 @@ describe('导入练度与再次筛选', () => {
   it('筛选读取当前拥有状态，保留会话、锁定、结果及历史', () => {
     let config = trained()
     config = putSession(config, 'full', drawSession(config, 'full', operators, () => 0).session)
-    config.locks.先锋 = true
+    config.locks.先锋[0] = true
     config.history = []
     config.operatorStates[ids[0]].owned = false
     const next = applyTraining(config, operators, 1)
@@ -95,7 +95,7 @@ describe('导入练度与再次筛选', () => {
     for (const o of operators) config.operatorTraining![o.id].level = candidates.includes(o.id) ? 60 : 1
     const next = applyTraining(config, operators, 60), draw = drawSession(next, mode, operators, () => 0)
     expect(draw.error).toBeUndefined()
-    const resultIds = mode === 'single' ? [draw.session.single] : Object.values(draw.session.result)
+    const resultIds = mode === 'single' ? [draw.session.single] : Object.values(draw.session.result).flat()
     expect(resultIds.every(id => id && candidates.includes(id))).toBe(true)
     const stored = putSession(next, mode, draw.session)
     stored.operatorTraining = {}
@@ -127,7 +127,7 @@ describe('练度存储与备份', () => {
     const config = applyTraining(trained(), operators, 60)
     expect(saveConfig(config)).toBe(true)
     expect(memory.has(STORAGE_KEY)).toBe(true)
-    expect(loadConfig(operators).config).toMatchObject({ configVersion: 1, operatorTraining: config.operatorTraining, trainingThreshold: 60 })
+    expect(loadConfig(operators).config).toMatchObject({ configVersion: 2, operatorTraining: config.operatorTraining, trainingThreshold: 60 })
   })
 })
 

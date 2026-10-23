@@ -1,4 +1,5 @@
-import { PROFESSIONS, type LocalConfig, type Operator, type OperatorStateMap } from '../types'
+import { normalizeLineup, isRecruitCount, isRecord } from './lineup'
+import type { LocalConfig, Operator, OperatorStateMap } from '../types'
 import { blankLocks, blankResult } from './randomizer'
 import { normalizeMaaSnapshot } from './maaSnapshot'
 import { normalizeTraining } from './training'
@@ -8,11 +9,15 @@ import { getOpeningSettings, normalizeOpeningSettings } from './opening'
 import { normalizeSessions } from './sessions'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
-export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 1, trainingThreshold: 0, noticesEnabled: true, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
-const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v)
+export const defaultConfig = (operators: Operator[]): LocalConfig => ({ configVersion: 2, recruitCount: 1, trainingThreshold: 0, noticesEnabled: true, selectedTheme: DEFAULT_THEME_ID, operatorStates: Object.fromEntries(operators.map(o => [o.id, { owned: false, enabled: true }])) as OperatorStateMap, locks: blankLocks(), currentResult: blankResult() })
 export function normalizeConfig(value: unknown, operators: Operator[]): LocalConfig {
   const base = defaultConfig(operators)
-  if (!isRecord(value) || value.configVersion !== 1) return base
+  if (!isRecord(value) || (value.configVersion !== 1 && value.configVersion !== 2)) return base
+  const legacy = value.configVersion === 1
+  base.recruitCount = !legacy && isRecruitCount(value.recruitCount) ? value.recruitCount : 1
+  const lineup = normalizeLineup(value.currentResult, value.locks, operators, base.recruitCount, legacy)
+  base.currentResult = lineup.result
+  base.locks = lineup.locks
   const maaSnapshot = normalizeMaaSnapshot(value.maaSnapshot, operators)
   if (maaSnapshot) base.maaSnapshot = maaSnapshot
   if (value.operatorTraining !== undefined) base.operatorTraining = normalizeTraining(value.operatorTraining, operators)
@@ -20,7 +25,7 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
   if (typeof value.noticesEnabled === 'boolean') base.noticesEnabled = value.noticesEnabled
   if (isISThemeId(value.selectedTheme)) base.selectedTheme = value.selectedTheme
   if (value.randomMode === 'full' || value.randomMode === 'eight' || value.randomMode === 'single') base.randomMode = value.randomMode
-  if (value.sessions !== undefined) base.sessions = normalizeSessions(value.sessions, operators)
+  if (value.sessions !== undefined) base.sessions = normalizeSessions(value.sessions, operators, base.recruitCount, legacy)
   if (value.phantomOpening !== undefined) base.phantomOpening = normalizeOpeningSettings(value.phantomOpening)
   if (isRecord(value.themeOpenings)) {
     base.themeOpenings = {}
@@ -39,11 +44,6 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
     const state = rawStates[operator.id]
     if (isRecord(state)) base.operatorStates[operator.id] = { owned: typeof state.owned === 'boolean' ? state.owned : false, enabled: typeof state.enabled === 'boolean' ? state.enabled : true }
   }
-  if (isRecord(value.locks)) for (const p of PROFESSIONS) if (typeof value.locks[p] === 'boolean') base.locks[p] = value.locks[p] as boolean
-  if (isRecord(value.currentResult)) for (const p of PROFESSIONS) {
-    const id = value.currentResult[p]
-    if (typeof id === 'string' && operators.some(o => o.id === id && o.profession === p)) base.currentResult[p] = id
-  }
   return base
 }
 export function loadConfig(operators: Operator[]): { config: LocalConfig; warning: boolean; migratedSample: boolean } {
@@ -55,8 +55,8 @@ export function loadConfig(operators: Operator[]): { config: LocalConfig; warnin
     const config = normalizeConfig(parsed, operators)
     // Keep personal settings, but reset results and their locks together on page load.
     // Backup normalization remains separate so explicit imports can restore results.
-    config.currentResult = blankResult()
-    config.locks = blankLocks()
+    config.currentResult = blankResult(config.recruitCount)
+    config.locks = blankLocks(config.recruitCount)
     delete config.sessions
     if (sampleStates) saveConfig(config)
     return { config, warning: false, migratedSample: Boolean(sampleStates) }

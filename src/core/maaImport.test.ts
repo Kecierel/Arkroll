@@ -24,12 +24,12 @@ describe('v0.2 正式数据', () => {
   it('正式数据仍满足抽取、锁定和单职业重抽', () => {
     const config = defaultConfig(operators)
     const current = drawAll(operators, config.operatorStates, blankResult(), blankLocks(), () => 0)
-    for (const profession of PROFESSIONS) expect(operators.find(operator => operator.id === current[profession])?.profession).toBe(profession)
+    for (const profession of PROFESSIONS) expect(operators.find(operator => operator.id === current[profession][0])?.profession).toBe(profession)
     const next = redrawOne('先锋', operators, config.operatorStates, current, () => 0)
-    expect(next.先锋).not.toBe(current.先锋)
-    for (const profession of PROFESSIONS.slice(1)) expect(next[profession]).toBe(current[profession])
-    const locked = drawAll(operators, config.operatorStates, current, { ...blankLocks(), 先锋: true }, length => length - 1)
-    expect(locked.先锋).toBe(current.先锋)
+    expect(next.先锋[0]).not.toBe(current.先锋[0])
+    for (const profession of PROFESSIONS.slice(1)) expect(next[profession][0]).toBe(current[profession][0])
+    const locked = drawAll(operators, config.operatorStates, current, { ...blankLocks(), 先锋: [true] }, length => length - 1)
+    expect(locked.先锋[0]).toBe(current.先锋[0])
   })
 })
 
@@ -75,7 +75,7 @@ describe('MAA 导入', () => {
     expect(next.operatorStates[missing.id]).toEqual({ owned: false, enabled: false })
     expect(next.operatorStates[firstByProfession[2].id]).toEqual({ owned: true, enabled: true })
     const result = drawAll(operators, next.operatorStates, blankResult(), blankLocks(), () => 0)
-    for (const id of Object.values(result)) if (id) expect(next.operatorStates[id].owned).toBe(true)
+    for (const id of Object.values(result).flat()) if (id) expect(next.operatorStates[id].owned).toBe(true)
     expect(config).toEqual(original)
     expect(applyMaaImport(preview, next)).toEqual(next)
   })
@@ -100,13 +100,13 @@ describe('MAA 导入', () => {
     expect(() => previewMaaImport(JSON.stringify(incomplete.slice(0, 1)), operators, config.operatorStates)).toThrow('八个职业')
     expect(config).toEqual(defaultConfig(operators))
   })
-  it('旧 SAMPLE 备份保留锁定、忽略旧筛选并清空无法对应的结果', () => {
-    const legacy = { ...defaultConfig(operators), settings: { ownedOnly: true }, locks: { ...blankLocks(), 先锋: true }, operatorStates: { sample_vanguard_a: { owned: true, enabled: false } }, currentResult: { ...blankResult(), 先锋: 'sample_vanguard_a' } }
+  it('旧 SAMPLE 备份忽略旧筛选并清空无法对应的结果和空位锁定', () => {
+    const legacy = { ...defaultConfig(operators), configVersion: 1, settings: { ownedOnly: true }, locks: Object.fromEntries(Object.keys(blankLocks()).map(p => [p, p === '先锋'])), operatorStates: { sample_vanguard_a: { owned: true, enabled: false } }, currentResult: Object.fromEntries(Object.keys(blankResult()).map(p => [p, p === '先锋' ? 'sample_vanguard_a' : null])) }
     const imported = parseBackupWithMigration(JSON.stringify(legacy), operators)
     expect(imported.discardedSample).toBe(true)
     expect(imported.config).not.toHaveProperty('settings')
-    expect(imported.config.locks.先锋).toBe(true)
-    expect(imported.config.currentResult.先锋).toBeNull()
+    expect(imported.config.locks.先锋[0]).toBe(false)
+    expect(imported.config.currentResult.先锋[0]).toBeNull()
     expect(imported.config.operatorStates[operators[0].id]).toEqual({ owned: false, enabled: true })
   })
 })

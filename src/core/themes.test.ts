@@ -17,10 +17,10 @@ it('六个主题均可保存、刷新恢复和备份往返，保留已有设置'
   vi.stubGlobal('localStorage', { getItem: () => stored, setItem: (_key: string, value: string) => { stored = value } })
   for (const theme of IS_THEMES) {
     const config = { ...defaultConfig([]), selectedTheme: theme.id }
-    config.locks.先锋 = true
+    config.locks.先锋[0] = true
     expect(saveConfig(config)).toBe(true)
     expect(loadConfig([]).config.selectedTheme).toBe(theme.id)
-    expect(loadConfig([]).config.locks.先锋).toBe(false)
-    expect(parseImport(JSON.stringify(exportConfig(config)), [])).toEqual(config)
+    expect(loadConfig([]).config.locks.先锋[0]).toBe(false)
+    expect(parseImport(JSON.stringify(exportConfig(config)), [])).toEqual({ ...config, locks: { ...config.locks, 先锋: [false] } })
   }
 })
