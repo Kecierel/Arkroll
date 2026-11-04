@@ -2,11 +2,13 @@
 
 🌐 **在线使用：[Arkroll](https://arkroll.pages.dev/)**
 
-**当前最新干员：克莱门莎** <img src="public/avatars/char_4231_clemnt.png" alt="克莱门莎默认头像" width="48" height="48" />
+**当前最新干员：塔露拉、冻河、国度** <img src="public/avatars/char_4247_oxi.png" alt="塔露拉默认头像" width="48" height="48" /> <img src="public/avatars/char_4244_tocka.png" alt="冻河默认头像" width="48" height="48" /> <img src="public/avatars/char_4246_dminon.png" alt="国度默认头像" width="48" height="48" />
+
+名单增量核对日期：2026-11-04。
 
 为《明日方舟》集成战略挑战随机选择分队、招募组合和6★干员。纯前端实现，无需账号或后端。
 
-当前源码版本 **0.5.0**。干员数据快照与核对日期见 [数据来源](DATA_SOURCES.md)。
+当前源码版本 **0.5.1**。干员数据快照与核对日期见 [数据来源](DATA_SOURCES.md)。
 
 ## 三种随机模式
 
@@ -98,7 +100,7 @@ npm.cmd run preview -- --host 127.0.0.1
 
 应用版本与存储协议分开维护：`configVersion: 2` 用于有序多位置结构，兼容读取旧协议1；存储键继续使用 `arknights-is-randomizer:v1`。协议版本不跟随产品版本自动变化，协议变化必须设计迁移。
 
-头像保留原始PNG及来源清单，展示用138张WebP共约1.80MiB，比原PNG减少77.2%，保持180×180和透明通道。入口低优先级预加载全部WebP，当前结果高优先级加载；实际等待与缓存复用取决于网络和浏览器。
+头像保留原始PNG及来源清单，展示用141张WebP共约1.84MiB，比原PNG减少77.3%，保持180×180和透明通道。入口低优先级预加载全部WebP，当前结果高优先级加载；实际等待与缓存复用取决于网络和浏览器。
 
 素材维护使用 `node scripts/download-avatars.mjs` 校验、补齐快照（该命令联网），再以支持WebP的Pillow运行 `python scripts/optimize-avatars.py`，生成压缩图、清单与 `src/data/avatarImages.json`。带内容哈希的图片与映射一起提交；常规npm构建无需Python，也不会自动联网下载素材。
 

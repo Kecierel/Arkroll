@@ -1383,6 +1383,51 @@
       "height": 180,
       "blobSha": "239321f896eac56e568f4bb3e7e5a7e2fe5b3bf7",
       "sha256": "9fbd68cd6f16adb7c454ea01bfac51443a6beb31cf55df581d6fd9542796141b"
+    },
+    {
+      "id": "char_4244_tocka",
+      "name": "冻河",
+      "path": "avatar/char_4244_tocka.png",
+      "bytes": 63235,
+      "width": 180,
+      "height": 180,
+      "blobSha": "6e317a0100e9a7241ec625b96b02f15dbe17cdc9",
+      "sha256": "e9382950bda98d71cb3214b0f7d9558a902cb460ab8554de56d8e5a2109d9d03",
+      "revision": "0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96"
+    },
+    {
+      "id": "char_4246_dminon",
+      "name": "国度",
+      "path": "avatar/char_4246_dminon.png",
+      "bytes": 60090,
+      "width": 180,
+      "height": 180,
+      "blobSha": "49b9a306f77e585f29bf512f1891e31a1736f3b9",
+      "sha256": "e37b0409aa66778d6463afdfcc8470cfe09eb9b8b811fe98aad1cea494252304",
+      "revision": "0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96"
+    },
+    {
+      "id": "char_4247_oxi",
+      "name": "塔露拉",
+      "path": "avatar/char_4247_oxi.png",
+      "bytes": 70045,
+      "width": 180,
+      "height": 180,
+      "blobSha": "e731c74a7ce74ca712fcda220ab8e8b5f97c050c",
+      "sha256": "891dbe6c5af520651b9490823c15a28cde5a53c99288f9a1e8ce81637e8a19dd",
+      "revision": "0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96"
+    }
+  ],
+  "additionalSources": [
+    {
+      "repository": "yuanyan3060/ArknightsGameResource",
+      "revision": "0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96",
+      "downloadedAt": "2026-11-04",
+      "ids": [
+        "char_4247_oxi",
+        "char_4244_tocka",
+        "char_4246_dminon"
+      ]
     }
   ]
 }

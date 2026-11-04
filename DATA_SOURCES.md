@@ -1,6 +1,6 @@
 # 数据与素材来源
 
-数据快照日期：**2026-10-14**。范围为国服简体中文、MAA 干员识别全量名单中的六星干员。`src/data/operators.json` 共 138 条：先锋 11、近卫 31、重装 15、狙击 17、术师 21、医疗 9、辅助 15、特种 19。
+基础数据快照日期：**2026-10-14**；最近增量核对日期：**2026-11-04**。范围为国服简体中文六星普通干员。原138条基于MAA干员识别全量名单，本次新增塔露拉、冻河、国度；`src/data/operators.json` 共141条：先锋11、近卫32、重装15、狙击17、术师21、医疗9、辅助16、特种20。此次为指定三人的增量更新，其余138条沿用原快照。
 
 生成时使用了三份材料：
 
@@ -14,12 +14,31 @@
 
 许可提示：MaaResource 仓库标注 AGPL-3.0；本地工具仅保留最小事实字段。发布保留上游来源、版本和适用许可信息，见 THIRD_PARTY_NOTICES.md。本文件记录数据出处，不代表已经完成公开发布许可审查。
 
+## 2026-11-04增量核对
+
+用户提供编号4247、4244、4246。通过GitHub API读取以下公开JSON，逐项交叉核对完整ID、名称、职业和六星标记，游戏数据中三人均可获得。
+
+| 干员 | 完整ID | 职业 |
+| --- | --- | --- |
+| 塔露拉 | char_4247_oxi | 近卫 |
+| 冻河 | char_4244_tocka | 辅助 |
+| 国度 | char_4246_dminon | 特种 |
+
+- MaaResource `battle_data.json` 文件blob为 `cbba352cb277242b2e3a0d952c186df75b077220`，星级为6。
+- ArknightsGameData 国服 `character_table.json` 文件blob为 `5cfce5bc20be49bfcefc754cbc7efa09aa69483c`，星级为TIER_6。
+
+本次只补充四项公开事实字段，没有读取私人MAA导出。名单的updatedAt表示最近维护日期，基础记录与新增记录的来源日期分别保留于本文。
+
 ## 默认头像
 
 - 来源：[yuanyan3060/ArknightsGameResource](https://github.com/yuanyan3060/ArknightsGameResource/tree/9bf239661e37766fba585806fb9fa67e79bb679e/avatar)，固定提交 `9bf239661e37766fba585806fb9fa67e79bb679e`。
 - 仅下载当前 138 名六星对应的 `avatar/<完整干员ID>.png`，排除追加 `_2` 的精二版本和所有皮肤；异格 ID 自带的 `2` 保留。
 - 原始 PNG 合计 8,308,641 字节；逐文件核对 Git blob SHA，尺寸与 SHA-256 记录在 `public/avatars/avatar-manifest.json`。不修改原始素材、不下载半身像或立绘。
 - 该项目为第三方整理仓库，README 声明静态资源版权属于 Arknights/上海鹰角网络科技有限公司，“仅用于学习和交流，侵删”。仓库 AGPL-3.0 标识不构成游戏图片权利人的授权，游戏素材不纳入本项目 MIT 许可。
+
+### 2026-11-04新增默认头像
+
+三张新增PNG来自同仓库提交 `0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96`，使用完整ID对应的默认头像，逐张验证Git blob SHA及PNG格式。旧138张PNG沿用原提交与原哈希；来源清单的additionalSources及新增文件revision分别记录增量出处。目前共141张，PNG共8,502,011字节。WebP由现有脚本重新生成，共1,932,410字节，减少77.3%；清单同时保留基础与增量来源。
 
 ### WebP 展示副本（2026-10-16）
 

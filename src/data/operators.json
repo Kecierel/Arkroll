@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-11-04",
   "operators": [
     {
       "id": "char_1045_svash2",
@@ -245,6 +245,12 @@
     {
       "id": "char_4231_clemnt",
       "name": "克莱门莎",
+      "profession": "近卫",
+      "rarity": 6
+    },
+    {
+      "id": "char_4247_oxi",
+      "name": "塔露拉",
       "profession": "近卫",
       "rarity": 6
     },
@@ -717,6 +723,12 @@
       "rarity": 6
     },
     {
+      "id": "char_4244_tocka",
+      "name": "冻河",
+      "profession": "辅助",
+      "rarity": 6
+    },
+    {
       "id": "char_1015_aglna2",
       "name": "予愿安洁莉娜",
       "profession": "特种",
@@ -815,6 +827,12 @@
     {
       "id": "char_4217_makoto",
       "name": "结城理",
+      "profession": "特种",
+      "rarity": 6
+    },
+    {
+      "id": "char_4246_dminon",
+      "name": "国度",
       "profession": "特种",
       "rarity": 6
     },

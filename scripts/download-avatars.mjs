@@ -3,7 +3,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 
 const repository = 'yuanyan3060/ArknightsGameResource'
-const revision = '9bf239661e37766fba585806fb9fa67e79bb679e'
+const revision = '0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96'
 const root = new URL('../', import.meta.url)
 const database = JSON.parse(await readFile(new URL('src/data/operators.json', root), 'utf8'))
 async function request(url) {

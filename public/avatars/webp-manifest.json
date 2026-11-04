@@ -1,10 +1,22 @@
 {
   "sourceRevision": "9bf239661e37766fba585806fb9fa67e79bb679e",
+  "additionalSources": [
+    {
+      "repository": "yuanyan3060/ArknightsGameResource",
+      "revision": "0f5efc6352337e2d63f81c0d2ca6d469b2ce3d96",
+      "downloadedAt": "2026-11-04",
+      "ids": [
+        "char_4247_oxi",
+        "char_4244_tocka",
+        "char_4246_dminon"
+      ]
+    }
+  ],
   "format": "webp",
   "quality": 85,
   "method": 6,
-  "originalBytes": 8308641,
-  "optimizedBytes": 1890866,
+  "originalBytes": 8502011,
+  "optimizedBytes": 1932410,
   "files": [
     {
       "id": "char_003_kalts",
@@ -1157,6 +1169,33 @@
       "height": 180,
       "sha256": "0ea6c64cd3088f64ea3fb01ff1edcedf248e195b126c465fd6d52d83e53f116a",
       "sourceSha256": "6737e7ffccc166a7e69fc460707427b66c65f8e6e821ba6234d9efd6f75b5efb"
+    },
+    {
+      "id": "char_4244_tocka",
+      "path": "avatars/webp/char_4244_tocka.09349a2a6d79.webp",
+      "bytes": 13992,
+      "width": 180,
+      "height": 180,
+      "sha256": "09349a2a6d793a7f9f9e7d1caa6329bb9796d63554a2efd40291634c660d82f4",
+      "sourceSha256": "e9382950bda98d71cb3214b0f7d9558a902cb460ab8554de56d8e5a2109d9d03"
+    },
+    {
+      "id": "char_4246_dminon",
+      "path": "avatars/webp/char_4246_dminon.d6190ca4f749.webp",
+      "bytes": 10806,
+      "width": 180,
+      "height": 180,
+      "sha256": "d6190ca4f749856d7e295dd7e508818a86fceb99353a8d39af520fb5866e8d3c",
+      "sourceSha256": "e37b0409aa66778d6463afdfcc8470cfe09eb9b8b811fe98aad1cea494252304"
+    },
+    {
+      "id": "char_4247_oxi",
+      "path": "avatars/webp/char_4247_oxi.f70b48d8ec0a.webp",
+      "bytes": 16746,
+      "width": 180,
+      "height": 180,
+      "sha256": "f70b48d8ec0a6e4a14386cd25c9af49aa167d8e94e2131f820674f2bd50c783c",
+      "sourceSha256": "891dbe6c5af520651b9490823c15a28cde5a53c99288f9a1e8ce81637e8a19dd"
     },
     {
       "id": "char_426_billro",

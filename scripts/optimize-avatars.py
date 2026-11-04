@@ -50,7 +50,7 @@ def main():
         entries.append({"id": operator_id, "path": paths[operator_id], "bytes": len(encoded),
                         "width": image.width, "height": image.height, "sha256": checksum,
                         "sourceSha256": record["sha256"]})
-    manifest = {"sourceRevision": source["revision"], "format": "webp", "quality": QUALITY,
+    manifest = {"sourceRevision": source["revision"], "additionalSources": source.get("additionalSources", []), "format": "webp", "quality": QUALITY,
                 "method": 6, "originalBytes": sum(records[key]["bytes"] for key in ids),
                 "optimizedBytes": sum(entry["bytes"] for entry in entries), "files": entries}
     (DIRECTORY / "webp-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", "utf-8")
