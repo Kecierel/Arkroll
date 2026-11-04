@@ -6,7 +6,7 @@ import { blankLocks, blankResult, drawAll, lineupShortages, randomIndex, type Pi
 import { getOpeningSettings } from './opening'
 import { stateFor } from './operatorPool'
 
-export const MODES = [{ id: 'full', name: '完全随机' }, { id: 'eight', name: '全职业随机' }, { id: 'single', name: '单干员随机' }] as const
+export const MODES = [{ id: 'full', name: '预先随机 · 随机分队和组合' }, { id: 'eight', name: '预先随机 · 仅随机干员' }, { id: 'single', name: '单干员随机' }] as const
 export const sessionKey = (mode: RandomMode, theme = DEFAULT_THEME_ID) => mode === 'full' ? `full:${theme}` : mode
 export const blankSession = (count: RecruitCount = 1): RandomSession => ({ result: blankResult(count), locks: blankLocks(count), squad: null, recruit: null, squadLocked: false, recruitLocked: false, single: null, singleLocked: false })
 export function getSession(config: LocalConfig, mode: RandomMode): RandomSession {
