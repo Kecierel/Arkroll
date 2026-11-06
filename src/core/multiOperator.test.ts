@@ -134,7 +134,7 @@ describe('0.5.0 ordered operator slots', () => {
     expect(config.currentResult.先锋).toEqual(['0-0']); expect(config.locks.先锋).toEqual([true])
     expect(getSession(config, 'full').locks.近卫).toEqual([true])
     expect(getSession(config, 'single').single).toBe('0-0')
-    expect(config.history![0].result.先锋![0].id).toBe('0-0')
+    expect(config.history![0]).toMatchObject({ result: { 先锋: [{ id: '0-0' }] } })
     expect(config.history![0]).toMatchObject({ favorite: true, recruitCount: 1 })
     expect(parseImport(JSON.stringify(exportConfig(config)), operators)).toEqual(config)
   })
@@ -195,7 +195,11 @@ describe('0.5.0 ordered operator slots', () => {
     const bad = structuredClone(config)
     if (kind === 'result') bad.currentResult.先锋 = ['0-0', '0-0', null]
     if (kind === 'session') getSession(bad, 'full').result.先锋 = ['0-0', '0-0', '0-2']
-    if (kind === 'history') bad.history![0].result.先锋![1] = { ...bad.history![0].result.先锋![0] }
+    if (kind === 'history') {
+      const row = bad.history![0]
+      if (row.mode === 'instant') throw new Error('Expected an ordered lineup fixture')
+      row.result.先锋![1] = { ...row.result.先锋![0] }
+    }
     if (kind === 'count') (bad as unknown as { recruitCount: number }).recruitCount = 4
     if (kind === 'locks') bad.locks.先锋 = [true]
     if (kind === 'unknown') bad.currentResult.先锋 = ['missing', null, null]

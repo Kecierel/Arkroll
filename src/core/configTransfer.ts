@@ -1,3 +1,4 @@
+import { normalizeInstantRun } from './instant'
 import type { ExportedConfig, LocalConfig, Operator } from '../types'
 import { normalizeConfig } from './storage'
 import { isRecord, isRecruitCount, normalizeLineup } from './lineup'
@@ -16,5 +17,7 @@ export function parseImport(text: string, operators: Operator[]): LocalConfig {
   normalizeLineup(value.currentResult, value.locks, operators, count, legacy, true)
   normalizeSessions(value.sessions, operators, count, legacy, true)
   if (value.history !== undefined) normalizeHistory(value.history)
+  if (value.instantRun !== undefined) normalizeInstantRun(value.instantRun, operators, undefined, true)
+  if (value.instantActive !== undefined && typeof value.instantActive !== 'boolean') throw new Error('即时随机模式状态无效。')
   return normalizeConfig(value, operators)
 }

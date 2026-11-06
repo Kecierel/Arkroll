@@ -79,14 +79,19 @@
 .card-actions button:not(:disabled):hover { background: #3e494e; color: white; }
 .card-actions .lock-on { color: #f1f7fa; font-weight: 700; }
 .random-footnote { font-size: 11px; color: #adbeca; line-height: 2; margin: 24px 0 0; max-width: 850px; }
-.single-result { display: flex; flex-direction: column; align-items: center; padding: 50px 24px; background: #283034; border: 1px solid #536269; min-height: 400px; box-shadow: 0 6px 18px #00000014; }
+.single-result { display: grid; grid-template-columns: 80px minmax(0, 1fr) auto; align-items: center; gap: 12px 20px; padding: 20px; background: #283034; border: 1px solid #536269; box-shadow: 0 6px 18px #00000014; }
 .single-result.is-locked { border-color: #d7e6ef; }
-.single-result .operator-avatar { width: 130px; height: 130px; margin: 20px 0 10px; }
-.single-result h2 { font-size: 32px; font-weight: 900; letter-spacing: -1px; margin: 16px 0 6px; text-align: center; }
-.single-result p { font-size: 13px; color: #bacddb; text-align: center; }
-.single-result button { margin-top: 15px; }
+.single-result .operator-avatar { width: 80px; height: 80px; margin: 0; }
+.single-result-content { min-width: 0; overflow-wrap: anywhere; }
+.single-result .eyebrow { display: block; font-size: 10px; letter-spacing: 1.4px; margin: 0 0 8px; }
+.single-result h2 { font-size: 26px; font-weight: 900; letter-spacing: -.6px; margin: 0 0 8px; text-align: left; }
+.single-result p { font-size: 12px; line-height: 1.8; color: #bacddb; text-align: left; margin: 6px 0 0; }
+.single-result .single-profession { justify-content: flex-start; }
+.single-result-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.single-result button { margin: 0; }
 .single-result button[aria-pressed=true] { color: #fff; border-color: #d0e3ed; }
-.single-result p.result-training { margin: 0 0 6px; color: #dce8f0; }
+.single-result p.result-training { margin: 6px 0 0; color: #dce8f0; }
+.single-result .single-result-note { grid-column: 2 / -1; margin: 0; font-size: 11px; }
 @media (max-width:1200px) {
   .page-heading.random-heading { flex-wrap: wrap; }
   .random-overview { gap: 20px; }
@@ -159,8 +164,12 @@
   .card-content .result-training { font-size: 10px; }
   .card-actions button { min-height: 44px; font-size: 11px; }
   .random-footnote { font-size: 12px; }
-  .single-result { padding: 34px 16px; min-height: 360px; }
-  .single-result h2 { font-size: 28px; }
+  .single-result { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; padding: 16px; }
+  .single-result .operator-avatar { width: 64px; height: 64px; }
+  .single-result h2 { font-size: 22px; }
+  .single-result-actions { grid-column: 1 / -1; }
+  .single-result-actions button { flex: 1; }
+  .single-result .single-result-note { grid-column: 1 / -1; }
 }
 @media (max-width:370px) {
   .random-heading h1 { font-size: 32px; }

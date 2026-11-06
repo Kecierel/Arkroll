@@ -1,3 +1,4 @@
+import { normalizeInstantRun } from './instant'
 import { normalizeLineup, isRecruitCount, isRecord } from './lineup'
 import type { LocalConfig, Operator, OperatorStateMap } from '../types'
 import { blankLocks, blankResult } from './randomizer'
@@ -5,7 +6,7 @@ import { normalizeMaaSnapshot } from './maaSnapshot'
 import { normalizeTraining } from './training'
 import { normalizeHistory } from './history'
 import { DEFAULT_THEME_ID, IS_THEMES, isISThemeId } from '../data/themes'
-import { getOpeningSettings, normalizeOpeningSettings } from './opening'
+import { clearExcludedInstantOpenings, getOpeningSettings, normalizeOpeningSettings } from './opening'
 import { normalizeSessions } from './sessions'
 
 export const STORAGE_KEY = 'arknights-is-randomizer:v1'
@@ -24,6 +25,8 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
   if (value.trainingThreshold === 0 || value.trainingThreshold === 1 || value.trainingThreshold === 60) base.trainingThreshold = value.trainingThreshold
   if (typeof value.noticesEnabled === 'boolean') base.noticesEnabled = value.noticesEnabled
   if (isISThemeId(value.selectedTheme)) base.selectedTheme = value.selectedTheme
+  if (value.instantRun !== undefined) base.instantRun = normalizeInstantRun(value.instantRun, operators, base.selectedTheme)
+  if (typeof value.instantActive === 'boolean') base.instantActive = value.instantActive
   if (value.randomMode === 'full' || value.randomMode === 'eight' || value.randomMode === 'single') base.randomMode = value.randomMode
   if (value.sessions !== undefined) base.sessions = normalizeSessions(value.sessions, operators, base.recruitCount, legacy)
   if (value.phantomOpening !== undefined) base.phantomOpening = normalizeOpeningSettings(value.phantomOpening)
@@ -38,6 +41,7 @@ export function normalizeConfig(value: unknown, operators: Operator[]): LocalCon
       if (full.recruit && settings.excludedRecruits.includes(full.recruit)) { full.recruit = null; full.recruitLocked = false }
     }
   }
+  if (base.instantRun) base.instantRun = clearExcludedInstantOpenings(base.instantRun, getOpeningSettings(base, base.instantRun.theme))
   const rawStates = isRecord(value.operatorStates) ? value.operatorStates : {}
   if (value.history !== undefined) base.history = normalizeHistory(value.history)
   for (const operator of operators) {
@@ -53,7 +57,7 @@ export function loadConfig(operators: Operator[]): { config: LocalConfig; warnin
     const parsed: unknown = JSON.parse(raw)
     const sampleStates = isRecord(parsed) && isRecord(parsed.operatorStates) && Object.keys(parsed.operatorStates).some(id => id.startsWith('sample_'))
     const config = normalizeConfig(parsed, operators)
-    // Keep personal settings, but reset results and their locks together on page load.
+    // Reset preset and single-operator results on page load. Instant runs persist.
     // Backup normalization remains separate so explicit imports can restore results.
     config.currentResult = blankResult(config.recruitCount)
     config.locks = blankLocks(config.recruitCount)

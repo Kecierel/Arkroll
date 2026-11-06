@@ -10,7 +10,7 @@ export default function RandomRangeSettings({ config, onChange }: { config: Loca
   }
   return <section className="settings-panel random-range-settings" aria-label="随机范围设置">
     <div className="panel-heading"><span>01</span><h2>随机范围</h2></div>
-    <p className="range-settings-help">预先随机 · 分队和组合 · 各主题独立保存，修改后自动生效。请排除尚未解锁或不想使用的选项；排除当前结果会清空并解锁该项。干员范围仍在「干员库」中管理。</p>
+    <p className="range-settings-help">预先随机与即时随机共用分队和组合范围 · 各主题独立保存，修改后自动生效。请排除尚未解锁或不想使用的选项；排除当前结果会清空并解锁该项。干员范围仍在「干员库」中管理。</p>
     <p className="range-settings-help">以下为效果摘要；局外强化、难度附加效果和局内随机结果以游戏为准。工具不代替游戏生成随机职业券或分队附加效果。</p>
     {IS_THEMES.map(theme => {
       const data = getThemeOpening(theme.id), settings = getOpeningSettings(config, theme.id)

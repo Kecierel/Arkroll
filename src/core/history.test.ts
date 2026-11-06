@@ -48,7 +48,7 @@ describe('history and favorites', () => {
     const config = setup(), row = captureRecord(config, operators)!
     row.result.先锋![0].id = 'removed-id'; config.history = [row]
     const imported = parseImport(JSON.stringify(config), operators)
-    expect(imported.history![0].result.先锋![0].id).toBe('removed-id')
+    expect(imported.history![0]).toMatchObject({ result: { 先锋: [{ id: 'removed-id' }] } })
     expect(restoreRecord(row, config, operators).invalid).toContain('先锋')
   })
   it('persists history on reload while clearing current results', () => {

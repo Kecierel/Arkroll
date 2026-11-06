@@ -228,3 +228,10 @@ footer a { font-size: 11px; }
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.history-instant-recruits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; list-style: none; padding: 0; margin: 24px 0; border-top: 1px solid var(--line); }
+.history-instant-recruits li { min-width: 0; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.history-recruit-number { color: #aab9bf; font-size: 11px; flex: none; }
+.history-instant-recruits small { margin: 6px 0 4px; }
+.history-instant-recruits time { display: block; color: #aab9bf; font-size: 11px; line-height: 1.8; }
+@media (max-width: 760px) { .history-instant-recruits { grid-template-columns: 1fr; } }

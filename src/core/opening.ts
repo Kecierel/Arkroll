@@ -1,6 +1,6 @@
 import { getThemeOpening, type OpeningOption } from '../data/openings'
 import { DEFAULT_THEME_ID, type ISThemeId } from '../data/themes'
-import type { LocalConfig } from '../types'
+import type { InstantRun, LocalConfig } from '../types'
 
 export interface OpeningSettings { excludedSquads: string[]; excludedRecruits: string[] }
 export const defaultOpeningSettings = (): OpeningSettings => ({ excludedSquads: [], excludedRecruits: [] })
@@ -13,6 +13,13 @@ export function normalizeOpeningSettings(value: unknown, theme: ISThemeId = DEFA
 export function getOpeningSettings(config: LocalConfig, theme: ISThemeId = config.selectedTheme ?? DEFAULT_THEME_ID): OpeningSettings {
   return config.themeOpenings?.[theme] ?? (theme === 'phantom' ? config.phantomOpening : undefined) ?? defaultOpeningSettings()
 }
+export function clearExcludedInstantOpenings(run: InstantRun, settings: OpeningSettings): InstantRun {
+  return {
+    ...run,
+    squad: run.squad && settings.excludedSquads.includes(run.squad) ? null : run.squad,
+    recruit: run.recruit && settings.excludedRecruits.includes(run.recruit) ? null : run.recruit,
+  }
+}
 export function setOpeningSettings(config: LocalConfig, theme: ISThemeId, settings: OpeningSettings): LocalConfig {
   const key = `full:${theme}`, current = config.sessions?.[key]
   const next = current ? { ...current } : undefined
@@ -20,7 +27,13 @@ export function setOpeningSettings(config: LocalConfig, theme: ISThemeId, settin
     if (next.squad && settings.excludedSquads.includes(next.squad)) { next.squad = null; next.squadLocked = false }
     if (next.recruit && settings.excludedRecruits.includes(next.recruit)) { next.recruit = null; next.recruitLocked = false }
   }
-  return { ...config, themeOpenings: { ...config.themeOpenings, [theme]: settings }, ...(theme === 'phantom' ? { phantomOpening: settings } : {}), ...(next ? { sessions: { ...config.sessions, [key]: next } } : {}) }
+  return {
+    ...config,
+    ...(config.instantRun?.theme === theme ? { instantRun: clearExcludedInstantOpenings(config.instantRun, settings) } : {}),
+    themeOpenings: { ...config.themeOpenings, [theme]: settings },
+    ...(theme === 'phantom' ? { phantomOpening: settings } : {}),
+    ...(next ? { sessions: { ...config.sessions, [key]: next } } : {}),
+  }
 }
 export function pickOpening(options: OpeningOption[], excluded: string[], current: string | null, locked: boolean, random = Math.random): string | null {
   const pool = options.filter(o => !excluded.includes(o.id))
